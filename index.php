@@ -21,7 +21,6 @@
   <header><?php include("components/header250.php"); ?></header>
 
   <main>
-    <section id="about">
       <p>
         <em>Dajabre Torain</em> is well known for her creative yet classy coding,
         neat workmanship, and interactive website experience.
