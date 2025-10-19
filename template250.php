@@ -11,6 +11,12 @@
   <!--  Link to CSS file(s) -->
   <link rel="stylesheet" href="styles/default.css">
 
+<<<<<<< HEAD
+=======
+  <!-- Dynamic header/footer JS -->
+  <script src="scripts/headfoot250.js" defer></script>
+
+>>>>>>> 18ef893 (Save local edits before pulling)
   <title> Dajabre Torain's Daring Tiger | WEB250 | Template Page - CHANGE FOR THIS PAGE </title>
   
   <!-- Accumulus Validator -->
@@ -18,7 +24,12 @@
 </head>
 
 <body>
+<<<<<<< HEAD
 <header><?php include("components/header250.php"); ?></header>
+=======
+  <header><?php include("components/header250.php"); ?></header>
+  
+>>>>>>> 18ef893 (Save local edits before pulling)
    <main>
     <section id = "main-header">
         <h2>Template Page - CHANGE TO PAGE NAME</h2>
@@ -30,6 +41,11 @@
          <p>This is a 2nd sample paragraph for the template page. I'll change it 
             or delete it depending on the assignment I create from it. </p>
   </main>
+<<<<<<< HEAD
 <footer><?php include("components/footer250.php"); ?></footer>
+=======
+  
+  <footer><?php include("components/footer250.php"); ?></footer>
+>>>>>>> 18ef893 (Save local edits before pulling)
 </body>
 </html>
