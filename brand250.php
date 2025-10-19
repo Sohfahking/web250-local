@@ -13,16 +13,13 @@
 
   <title> Dajabre Torain's Daring Tiger | WEB250 | The Brand</title>
 
-  <!-- Dynamic header/footer JS -->
-  <script src="scripts/headfoot250.js" defer></script>
-
   <!-- Accumulus Validator -->
   <script src="https://lint.page/kit/880bd5.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
-  <header></header>
+  <header><?php include("components/header250.php"); ?></header>
 
   <main>
       <h2>The Brand</h2>

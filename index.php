@@ -13,22 +13,16 @@
 
   <title> Dajabre Torain's Daring Tiger | WEB250 | Home</title>
 
-  <!-- Dynamic header/footer JS -->
-  <script src="scripts/headfoot250.js" defer></script>
-
   <!-- Accumulus Validator -->
   <script src="https://lint.page/kit/880bd5.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-      <header></header>
+  <header><?php include("components/header250.php"); ?></header>
 
   <main>
     <section id="about">
-      <header>
-        <h2>Home</h2>
-        <h3>About The Creator</h3>
-      </header>
+      <header><?php include("components/header250.php"); ?></header>
       <p>
         <em>Dajabre Torain</em> is well known for her creative yet classy coding,
         neat workmanship, and interactive website experience.
@@ -40,6 +34,6 @@
     </section>
   </main>
 
-   <footer></footer>
+   <footer><?php include("components/footer250.php"); ?></footer>
 </body>
 </html>
