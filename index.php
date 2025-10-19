@@ -30,7 +30,6 @@
         career so far in Information Technology.
       </p>
   </main>
-
    <footer><?php include("components/footer250.php"); ?></footer>
 </body>
 </html>
