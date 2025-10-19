@@ -1,0 +1,15 @@
+html {
+/* CSS HEX */
+--paynes-gray: #5d737eff;
+--verdigris: #64b6acff;
+--celeste: #c0fdfbff;
+--mint-green: #daffefff;
+--baby-powder: #fcfffdff;
+
+/* CSS HSL */
+--paynes-gray: hsla(200, 15%, 43%, 1);
+--verdigris: hsla(173, 36%, 55%, 1);
+--celeste: hsla(178, 94%, 87%, 1);
+--mint-green: hsla(154, 100%, 93%, 1);
+--baby-powder: hsla(140, 100%, 99%, 1);
+}

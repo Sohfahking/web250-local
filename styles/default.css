@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+:root {
+  /* Brand Colors */
+  --paynes-gray: #5d737e;
+  --verdigris: #64b6ac;
+  --mint-green: #daffef;
+  --baby-powder: #fcfffd;
+}
+
+/* Global Styles */
+body {
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  background-color: var(--verdigris);
+  margin: 0;
+  padding: 20px;
+  line-height: 1.5;
+}
+
+h1 {
+  background-color: var(--paynes-gray);
+  border-radius: 10px;
+  color: var(--mint-green);
+  font-weight: bold;
+  padding: 10px;
+}
+
+h2, h3, h4, h5, h6 {
+  color: var(--paynes-gray);
+  font-weight: bold;
+}
+
+p {
+  text-align: left;
+  margin: 0 1rem 1rem; 
+  line-height: 1.6;  
+}
+
+ul, li {
+  text-align: left;
+  margin: 0 1rem;
+  line-height: 1.6; 
+}
+
+/* Navigation Bar */
+header nav {
+  background-color: var(--mint-green);
+  padding: 1rem 0;
+}
+
+header nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header nav a {
+  text-decoration: none;
+  color: var(--paynes-gray);
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover {
+  color: var(--verdigris);
+}
+
+/* Main Content */
+main {
+  box-sizing: border-box;
+  background-color: var(--baby-powder);
+  border-radius: 10px;
+  margin: 1rem auto 2rem;
+  max-width: 800px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--paynes-gray);
+}
+
+main a:visited {
+  color: var(--paynes-gray);
+}
+
+/* Brand Color Boxes */
+.color-box {
+  width: 80%;
+  height: 50px;
+  margin: 5px auto;
+  text-align: center;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Footer */
+footer {
+  background-color: var(--paynes-gray);
+  color: var(--mint-green);
+  padding: 1rem 0;
+  text-align: center;
+}
+
+footer nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--mint-green);
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--verdigris);
+}
+
+footer p {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+}
