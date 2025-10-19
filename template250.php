@@ -19,8 +19,6 @@
 
 <body>
 <header><?php include("components/header250.php"); ?></header>
-  
-
    <main>
     <section id = "main-header">
         <h2>Template Page - CHANGE TO PAGE NAME</h2>
