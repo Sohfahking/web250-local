@@ -62,6 +62,6 @@
       </ul>
   </main>
 
-  <footer></footer>
+  <footer><?php include("components/footer250.php"); ?></footer>
 </body>
 </html>

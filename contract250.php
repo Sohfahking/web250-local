@@ -37,6 +37,6 @@
     <p>Signed: <em>Dajabre Torain-Williams, 09/15/2025</em></p>
   </main>
     
-    <footer></footer>
+    <footer><?php include("components/footer250.php"); ?></footer>
 </body>
 </html>
