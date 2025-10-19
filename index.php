@@ -21,6 +21,7 @@
   <header><?php include("components/header250.php"); ?></header>
 
   <main>
+    <h2>Home</h2>
       <p>
         <em>Dajabre Torain</em> is well known for her creative yet classy coding,
         neat workmanship, and interactive website experience.
@@ -30,6 +31,7 @@
         career so far in Information Technology.
       </p>
   </main>
-   <footer><?php include("components/footer250.php"); ?></footer>
+  
+  <footer><?php include("components/footer250.php"); ?></footer>
 </body>
 </html>
