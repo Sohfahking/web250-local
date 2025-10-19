@@ -29,7 +29,6 @@
         Here, she showcases her coding prowess and other interesting details about her
         career so far in Information Technology.
       </p>
-    </section>
   </main>
 
    <footer><?php include("components/footer250.php"); ?></footer>
