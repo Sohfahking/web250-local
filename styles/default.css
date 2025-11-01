@@ -16,6 +16,7 @@ body {
   margin: 0;
   padding: 20px;
   line-height: 1.5;
+  font-size: 16px;
 }
 
 h1 {
@@ -23,7 +24,7 @@ h1 {
   border-radius: 10px;
   color: var(--mint-green);
   font-weight: bold;
-  padding: 10px;
+  padding: 20px;
 }
 
 h2, h3, h4, h5, h6 {
@@ -46,7 +47,7 @@ ul, li {
 /* Navigation Bar */
 header nav {
   background-color: var(--mint-green);
-  padding: 1rem 0;
+  padding: 20px;
 }
 
 header nav ul {
@@ -75,9 +76,8 @@ main {
   border-radius: 10px;
   margin: 1rem auto 2rem;
   max-width: 800px;
-  padding: 2rem;
+  padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  font-size: 1rem;
   line-height: 1.6;
   color: var(--paynes-gray);
 }
@@ -102,7 +102,7 @@ main a:visited {
 footer {
   background-color: var(--paynes-gray);
   color: var(--mint-green);
-  padding: 1rem 0;
+  padding: 20px;
   text-align: center;
 }
 
@@ -129,6 +129,6 @@ footer a:hover {
 footer p {
   margin-top: 16px;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 1.6;
   text-align: center;
 }
