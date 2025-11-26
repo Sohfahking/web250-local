@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!--  Link to CSS file(s) -->
-  <link rel="stylesheet" href="styles/default.css">
+  <link rel="stylesheet" href="styles/styles.css">
 
   <title> Dajabre Torain's Daring Tiger | WEB250 | Course Contract </title>
 
