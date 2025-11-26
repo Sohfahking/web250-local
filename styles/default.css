@@ -51,7 +51,7 @@ header nav {
 }
 
 header nav ul {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   list-style: none;
   margin: 0;
@@ -68,6 +68,33 @@ header nav a {
 header nav a:hover {
   color: var(--verdigris);
 }
+
+/*Dropdown Menus*/
+.main-menu a,
+.sub-menu a {
+  text-decoration: none;
+  color: var(--paynes-gray);
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.main-menu li:hover > a,
+.sub-menu li:hover > a {
+  color: var(--verdigris);
+}
+
+/* Sub-menu hidden by default */
+.sub-menu {
+  display: none;
+  list-style: none;
+  padding-left: 10px;
+}
+
+/* Show sub-menu on parent hover */
+.main-menu li:hover > .sub-menu {
+  display: block;
+}
+
 
 /* Main Content */
 main {
