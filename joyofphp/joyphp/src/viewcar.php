@@ -35,7 +35,7 @@ echo "<p>Exterior Color: $color </p>";
 echo "<p>Interior Color: $interior </p>";
 
 $mysqli->close();
-   
+include 'footer.php'
 ?>
 
 </body>

@@ -2,36 +2,114 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="description" content="Index/Home">
-  <meta name="keywords" content="HTML, CSS, JavaScript">
-  <meta name="author" content="Dajabre Torain">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Dajabre Torain">
+  <meta name="keywords" content="HTML, CSS, PHP, WEB250">
+  <meta name="description" content="Dynamic Multipage PHP Site">
 
-  <!--  Link to CSS file(s) -->
   <link rel="stylesheet" href="styles/styles.css">
 
-  <title> Dajabre Torain's Daring Tiger | WEB250 | Home</title>
+  <?php
+  //determine what page is loaded
+  $page = $_GET['page'] ?? 'index';
+
+  //page titles
+  $titles = [
+    "index"       => "Dajabre Torain's Daring Tiger | WEB250 | Home",
+    "intro250"    => "Dajabre Torain's Daring Tiger | WEB250 | Introduction",
+    "contract250" => "Dajabre Torain's Daring Tiger | WEB250 | Course Contract",
+    "brand250"    => "Dajabre Torain's Daring Tiger | WEB250 | Brand",
+    "template250" => "Dajabre Torain's Daring Tiger | WEB250 | Template"
+  ];
+
+  //dynamic title (fallback if not found)
+  $title = $titles[$page] ?? "Dajabre Torain's Daring Tiger";
+  ?>
+  <title><?= $title ?></title>
 
   <!-- Accumulus Validator -->
   <script src="https://lint.page/kit/880bd5.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <header><?php include("components/header250.php"); ?></header>
+  <header>
+    <h1>Dajabre Torain's Daring Tiger | WEB250</h1>
+    <nav>
+      <ul>
+        <li><a href="index.php?page=index" title="Index">Home</a></li>
+      </ul>
+
+      <ul class="main-menu">
+        <li><a href="#" title="Contents">Contents</a>
+          <ul class="sub-menu">
+            <li><a href="index.php?page=intro250" title="My Introduction">Introduction</a></li>
+            <li><a href="index.php?page=contract250" title="My Contract">Contract</a></li>
+            <li><a href="index.php?page=brand250" title="My Brand">Brand</a></li>
+            <li><a href="index.php?page=template250" title="Temp">Template</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+      <ul>
+        <li><a href="./joyofphp/joyphp/src/index.php" title="Joy of PHP">Joy of PHP</a></li>
+      </ul>
+
+      <ul class="main-menu">
+        <li><a href="#" title="Multipage Static PHP">Multipage Sites: Static & PHP ↓</a>
+          <ul class="sub-menu">
+            <li><a href="./multipage_sites/superduper_static/index.htm" title="Multipage Static">SuperDuper Static</a></li>
+            <li><a href="./multipage_sites/superduper_php/index.php" title="Multipage PHP">SuperDuper PHP</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="main-menu">
+        <li><a href="./joyofphp/joyphp/src/samsusedcars.html" title="Sam's Used Cars">
+            Sam's Used Cars ↓</a>
+          <ul class="sub-menu">
+            <li>Car Ver 1</li>
+            <li>Car Ver 2</li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
   <main>
-    <h2>Home</h2>
-      <p>
-        <em>Dajabre Torain</em> is well known for her creative yet classy coding,
-        neat workmanship, and interactive website experience.
-        She began her interest in computers as a child, coding Tumblr pages,
-        reading kitschy webcomics, and burning punk-rock music onto CDs.
-        Here, she showcases her coding prowess and other interesting details about her
-        career so far in Information Technology.
-      </p>
+    <?php
+    // Build path to content
+    $file = "contents/" . $page . ".php";
+
+    // Load if exists, otherwise load a fallback error page
+    if (file_exists($file)) {
+      include($file);
+    } else {
+      include("contents/404.php");
+    }
+    ?>
   </main>
-  
-  <footer><?php include("components/footer250.php"); ?></footer>
+
+  <footer>
+    <nav>
+      <ul>
+        <li><a href="https://github.com/Sohfahking" target="_blank" title="GitHub">GitHub</a></li>
+        <li><a href="http://Sohfahking.GitHub.io" target="_blank" title="GitHub.io">GitHub.io</a></li>
+        <li><a href="https://sohfahking.github.io/web115/" target="_blank" title="WEB115">WEB115.io</a></li>
+        <li><a href="https://sohfahking.github.io/web215/" target="_blank" title="WEB215">WEB215.io</a></li>
+        <li><a href="https://sohfahking.github.io/web250/" target="_blank" title="WEB250">WEB250.io</a></li>
+        <li><a href="https://www.freecodecamp.org/DajabreTorain" target="_blank" title="freeCodeCamp">freeCodeCamp</a>
+        </li>
+        <li><a href="https://www.codecademy.com/profiles/DajabreTorain" target="_blank"
+            title="Codecademy">Codecademy</a></li>
+        <li><a href="https://jsfiddle.net/user/DajabreTorain" target="_blank" title="JSFiddle">JSFiddle</a></li>
+        <li><a href="https://www.linkedin.com/in/dajabre-torain/" target="_blank" title="LinkedIn">LinkedIn</a></li>
+      </ul>
+    </nav>
+    <p>Designed by Dajabre Torain | &copy; 2025</p>
+  </footer>
+
 </body>
+
 </html>

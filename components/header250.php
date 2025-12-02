@@ -1,11 +1,11 @@
     <h1>Dajabre Torain's Daring Tiger | WEB250</h1>
     <nav>
       <ul>
-        <li><a href="./index.php" title="Index">Home</a></li>
-        <li><a href="./introduction250.php" title="My Introduction">Introduction</a></li>
+        <li><a href="./indexx.php" title="Index">Home</a></li>
+        <li><a href="./intro250.php" title="My Introduction">Introduction</a></li>
         <li><a href="./contract250.php" title="My Contract">Contract</a></li>
         <li><a href="./brand250.php" title="My Brand">Brand</a></li>
-        <li><a href="./brand250.php" title="My Brand">Joy of PHP</a></li>
+        <li><a href="./joyofphp/joyphp/src/index.php" title="My Brand">Joy of PHP</a></li>
       </ul>
       
       <ul class="main-menu">
@@ -27,6 +27,4 @@
             </ul>
           </li>
         </ul>
-
-
     </nav>

@@ -27,5 +27,5 @@ else
     echo "<p>Error: </p>" . $mysqli->error."<br>";;
 }
 $mysqli->close();
-echo "<br><br><a href='index.html'>Home</a>";
+include 'footer.php'
 ?>

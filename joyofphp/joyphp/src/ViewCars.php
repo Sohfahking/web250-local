@@ -1,51 +1,58 @@
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Sam's Used Cars</title>
-   </head>
+<?php
+// Include the database connection
+include 'db.php';
 
-   
+// Query the inventory
+$query = "SELECT * FROM inventory ORDER BY Make";
+$result = $mysqli->query($query);
+
+// Check for errors
+if (!$result) {
+    die("Error getting cars from the database: " . $mysqli->error);
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sam's Used Cars</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
 <h1>Sam's Used Cars</h1>
 <h3>Complete Inventory</h3>
- <?php
-include 'db.php';
-$query = "SELECT * FROM inventory ORDER BY Make";
-/* Try to insert the new car into the database */
-if ($result = $mysqli->query($query)) {
-   // Don't do anything if successful.
-}
-else
-{
-    echo "Error getting cars from the database: " . mysql_error()."<br>";
-}
 
-//***
-echo "<table id='Grid' style='width: 80%'><tr>";
-echo "<th style='width: 50px'>Make</th>";
-echo "<th style='width: 50px'>Model</th>";
-echo "<th style='width: 50px'>Asking Price</th>";
-echo "</tr>\n";
+<table id="Grid" style="width: 80%;">
+    <thead>
+        <tr>
+            <th style="width: 50px">Make</th>
+            <th style="width: 50px">Model</th>
+            <th style="width: 50px">Asking Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        $class = "odd";
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr class=\"$class\">";
+            echo "<td>" . htmlspecialchars($row['Make']) . "</td>";
+            echo "<td>" . htmlspecialchars($row['Model']) . "</td>";
+            echo "<td>$" . number_format($row['ASKING_PRICE'], 2) . "</td>";
+            echo "</tr>\n";
 
-$class ="odd";
+            $class = ($class == "odd") ? "even" : "odd";
+        }
+        ?>
+    </tbody>
+</table>
 
-while ($result_ar = mysqli_fetch_assoc($result)) {
-    echo "<tr class=\"$class\">";
-    echo "<td>" . $result_ar['Make'] . "</td>";
-    echo "<td>" . $result_ar['Model'] . "</td>";
-    echo "<td>" . $result_ar['ASKING_PRICE'] . "</td>";
-   echo "</td></tr>\n";
-    if ($class=="odd"){
-        $class="even";
-    }
-    else
-    {
-        $class="odd";
-    }
-}
-echo "</table>";
+<?php
+// Free result set and close connection
+$result->free();
 $mysqli->close();
+include 'footer.php'
 ?>
- </body>
- 
+
+</body>
 </html>

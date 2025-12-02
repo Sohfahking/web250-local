@@ -49,7 +49,7 @@ if ($result = $mysqli->query($query)) {
    // Got some results
    // Loop through all the rows returned by the query, creating a table row for each
 while ($result_ar = mysqli_fetch_assoc($result)) {
-    $image = $result_ar['ImageFile'];
+    $image = $result_ar['FILENAME'];
     echo "<img src='uploads/$image' width= '250'>  " ;
 }
 }

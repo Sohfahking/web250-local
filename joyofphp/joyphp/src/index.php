@@ -17,6 +17,7 @@
 <body background="bg.jpg">
 
 <p><img alt="The Joy of PHP" height="87" src="joy_logo.jpg" width="809" /></p>
+<h2><a href='/web250-local/index.php?p=index' title='Index'>Web 250 Home</a></h2>
 <h2>Introduction</h2>
 <p>The Joy of PHP book walks you through creating a website for <strong>
 <a href="samsusedcars.html">Sam's Used Cars</a></strong>.&nbsp; 
@@ -62,6 +63,7 @@ username and password)</p>
 <p><a href="CreateImagesTable.php">Create the Images Table</a> (Again, edit line 
 8 with your username and password)</p>
 <p><img alt="Joy of PHP" height="313" src="smallcover.jpg" width="196" /></p>
+
 
 </body>
 
