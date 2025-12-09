@@ -41,7 +41,7 @@
       </ul>
 
       <ul class="main-menu">
-        <li><a href="#" title="Contents">Contents</a>
+        <li><a href="#" title="Contents">Contents ↓</a>
           <ul class="sub-menu">
             <li><a href="index.php?page=intro250" title="My Introduction">Introduction</a></li>
             <li><a href="index.php?page=contract250" title="My Contract">Contract</a></li>
@@ -66,7 +66,7 @@
       </ul>
 
       <ul class="main-menu">
-        <li><a href="./joyofphp/joyphp/src/samsusedcars.html" title="Sam's Used Cars">
+        <li><a href="./joyofphp/joyphp/src/samsusedcars.php" title="Sam's Used Cars">
             Sam's Used Cars ↓</a>
           <ul class="sub-menu">
             <li>Car Ver 1</li>

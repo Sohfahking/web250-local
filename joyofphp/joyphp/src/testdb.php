@@ -1,8 +1,5 @@
 <?php
-$mysqli = new mysqli("localhost", "root", "", "Cars");
-
-if ($mysqli->connect_error) {
-    die("Connection failed: " . $mysqli->connect_error);
-}
+include 'db.php';
 echo "Connected successfully!";
 ?>
+
