@@ -8,10 +8,17 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     $db   = "Cars";      //local database name
 } else {
     // InfinityFree live settings
-    $host = "sql305.infinityfree.com";
-    $user = "if0_40312071";
-    $pass = "Yiddies1";
-    $db   = "if0_40312071_cars";  
+    $host = getenv('DB_HOST');
+    $user = getenv('DB_USERNAME');
+    $pass = getenv('DB_PASSWORD');
+    $db   = getenv('DB_DATABASE'); 
+}
+
+$dsn = "pgsql:host=$host;dbname=$dbname;user=$user;password=$password";
+try {
+    $pdo = new PDO($dsn);
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
 }
 
 // Create connection
