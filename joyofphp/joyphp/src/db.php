@@ -14,12 +14,6 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     $db   = getenv('DB_DATABASE'); 
 }
 
-$dsn = "pgsql:host=$host;dbname=$db;user=$user;password=$pass";
-try {
-    $pdo = new PDO($dsn);
-} catch (PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
-}
 
 // Create connection
 $mysqli = new mysqli($host, $user, $pass, $db);
