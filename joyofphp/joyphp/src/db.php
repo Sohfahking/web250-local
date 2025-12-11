@@ -14,7 +14,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     $db   = getenv('DB_DATABASE'); 
 }
 
-$dsn = "pgsql:host=$host;dbname=$dbname;user=$user;password=$password";
+$dsn = "pgsql:host=$host;dbname=$db;user=$user;password=$pass";
 try {
     $pdo = new PDO($dsn);
 } catch (PDOException $e) {
