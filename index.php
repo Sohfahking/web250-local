@@ -21,11 +21,6 @@
     "contract250" => "Dajabre Torain's Daring Tiger | WEB250 | Course Contract",
     "brand250"    => "Dajabre Torain's Daring Tiger | WEB250 | Brand",
     "template250" => "Dajabre Torain's Daring Tiger | WEB250 | Template",
-
-    // Car app pages
-    "car_inventory"  => "Dajabre Torain's Daring Tiger | Car App | Inventory",
-    "car_upload" => "Dajabre Torain's Daring Tiger | Car App | Upload Image",
-    "car_edit"   => "Dajabre Torain's Daring Tiger | Car App | Edit Car"
   ];
 
   //dynamic title (fallback if not found)

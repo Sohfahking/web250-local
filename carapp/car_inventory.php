@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Sam's Used Cars</title>
+    <title>Daring Tiger's Car Inventory</title>
 
     <style>
         #Grid {
@@ -37,14 +37,14 @@
     </style>
 </head>
 
-<body background="bg.jpg">
-<h1>Sam's Used Cars</h1>
+<body>
+  <header><?php include("components/header250.php"); ?></header>
 <h3>Current Inventory</h3>
 
 <div class="auto-style1">
 
 <?php
-include 'db.php'; // Supplies $pdo (PDO connection)
+include __DIR__ . '/car_db.php';
 
 // Query all cars
 $stmt = $pdo->query("SELECT * FROM inventory ORDER BY make, model");
@@ -86,10 +86,9 @@ foreach ($cars as $car) {
 }
 
 echo "</table>";
-
-include 'footer.php';
 ?>
-
 </div>
+
+<footer><?php include("components/footer250.php"); ?></footer>
 </body>
 </html>
