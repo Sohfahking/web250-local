@@ -1,9 +1,13 @@
 <?php
 include 'db.php';
 
-// Query all cars
-$stmt = $pdo->query("SELECT * FROM inventory ORDER BY Make");
-$rows = $stmt->fetchAll();
+try {
+    // Fetch all cars from inventory ordered by Make
+    $stmt = $pdo->query("SELECT * FROM inventory ORDER BY Make");
+    $rows = $stmt->fetchAll();
+} catch (PDOException $e) {
+    die("Error fetching cars: " . $e->getMessage());
+}
 ?>
 
 <!DOCTYPE html>
@@ -26,18 +30,22 @@ $rows = $stmt->fetchAll();
         </tr>
     </thead>
     <tbody>
-        <?php 
+        <?php
         $class = "odd";
-        foreach ($rows as $row): 
+        if ($rows) {
+            foreach ($rows as $row):
         ?>
-        <tr class="<?= $class ?>">
-            <td><?= htmlspecialchars($row['Make']) ?></td>
-            <td><?= htmlspecialchars($row['Model']) ?></td>
-            <td>$<?= number_format($row['ASKING_PRICE'], 2) ?></td>
-        </tr>
-        <?php 
-        $class = ($class == "odd") ? "even" : "odd";
-        endforeach; 
+            <tr class="<?= $class ?>">
+                <td><?= htmlspecialchars($row['Make']) ?></td>
+                <td><?= htmlspecialchars($row['Model']) ?></td>
+                <td>$<?= number_format($row['ASKING_PRICE'], 2) ?></td>
+            </tr>
+        <?php
+                $class = ($class == "odd") ? "even" : "odd";
+            endforeach;
+        } else {
+            echo "<tr><td colspan='3'>No cars in inventory.</td></tr>";
+        }
         ?>
     </tbody>
 </table>
