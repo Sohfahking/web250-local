@@ -18,4 +18,10 @@ $deleted = $stmt->execute(['vin'=>$vin]);
     <p>There was an error deleting the car.</p>
 <?php endif; ?>
 
-<p><a href="https://web250-local.onrender.com/carapp/car_inventory.php">Back to Inventory</a></p>
+    <p><a href="https://web250-local.onrender.com/carapp/car_inventory.php">Back to Inventory</a></p>
+
+    <footer><?php include("components/footer250.php"); ?></footer>
+
+</body>
+
+</html>
