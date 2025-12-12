@@ -1,20 +1,10 @@
 <?php
 include 'db.php';
 
+// Query all cars
 $stmt = $pdo->query("SELECT * FROM inventory ORDER BY Make");
 $rows = $stmt->fetchAll();
 ?>
-
-<table>
-<?php foreach ($rows as $row): ?>
-<tr>
-    <td><?= htmlspecialchars($row['Make']) ?></td>
-    <td><?= htmlspecialchars($row['Model']) ?></td>
-    <td>$<?= number_format($row['ASKING_PRICE'], 2) ?></td>
-</tr>
-<?php endforeach; ?>
-</table>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,27 +26,23 @@ $rows = $stmt->fetchAll();
         </tr>
     </thead>
     <tbody>
-        <?php
+        <?php 
         $class = "odd";
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr class=\"$class\">";
-            echo "<td>" . htmlspecialchars($row['Make']) . "</td>";
-            echo "<td>" . htmlspecialchars($row['Model']) . "</td>";
-            echo "<td>$" . number_format($row['ASKING_PRICE'], 2) . "</td>";
-            echo "</tr>\n";
-
-            $class = ($class == "odd") ? "even" : "odd";
-        }
+        foreach ($rows as $row): 
+        ?>
+        <tr class="<?= $class ?>">
+            <td><?= htmlspecialchars($row['Make']) ?></td>
+            <td><?= htmlspecialchars($row['Model']) ?></td>
+            <td>$<?= number_format($row['ASKING_PRICE'], 2) ?></td>
+        </tr>
+        <?php 
+        $class = ($class == "odd") ? "even" : "odd";
+        endforeach; 
         ?>
     </tbody>
 </table>
 
-<?php
-// Free result set and close connection
-$result->free();
-$mysqli->close();
-include 'footer.php'
-?>
-
+<?php include 'footer.php'; ?>
 </body>
 </html>
+
