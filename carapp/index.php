@@ -77,7 +77,7 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </style>
 </head>
 <body>
-<h1>Dapper Viper's Used Cars</h1>
+<header><?php include("components/header250.php"); ?></header>
 
 <!-- Feedback message -->
 <div><?= $feedback ?></div>
@@ -139,6 +139,6 @@ endforeach;
 ?>
 </table>
 
-<?php include 'components/footer250.php'; ?>
+<footer><?php include("components/footer250.php"); ?></footer>
 </body>
 </html>
