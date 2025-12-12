@@ -11,12 +11,12 @@ try {
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
     // Check if inventory exists
-    $stmt = $pdo->query("SELECT to_regclass('public.inventory')");
-    $inventoryExists = $stmt->fetchColumn();
+    $stmt = $pdo->query("SELECT to_regclass('public.cars')");
+    $carsExists = $stmt->fetchColumn();
 
-    if (!$inventoryExists) {
-        $createInventory = "
-            CREATE TABLE inventory (
+    if (!$carsExists) {
+        $createCars = "
+            CREATE TABLE cars (
                 vin VARCHAR(20) PRIMARY KEY,
                 make VARCHAR(50) NOT NULL,
                 model VARCHAR(50) NOT NULL,
@@ -26,8 +26,8 @@ try {
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
         ";
-        $pdo->exec($createInventory);
-        echo "Table 'inventory' created successfully.<br>";
+        $pdo->exec($createCars);
+        echo "Table 'cars' created successfully.<br>";
     }
 
     // Images table
