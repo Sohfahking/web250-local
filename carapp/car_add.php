@@ -36,26 +36,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<h2>Add New Car</h2>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Index/Home">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Dajabre Torain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<?php if ($errors): ?>
-    <div style="color:red;">
-        <?php foreach ($errors as $err) echo "<p>$err</p>"; ?>
-    </div>
-<?php endif; ?>
+    <!--  Link to CSS file(s) -->
+    <link rel="stylesheet" href="styles/styles.css">
 
-<?php if ($success): ?>
-    <div style="color:green;"><p><?= htmlspecialchars($success) ?></p></div>
-<?php endif; ?>
+    <title> Dajabre Torain's Daring Tiger | WEB250 | Home</title>
 
-<form method="post">
-    <label>VIN: <input type="text" name="VIN" required></label><br>
-    <label>Make: <input type="text" name="Make" required></label><br>
-    <label>Model: <input type="text" name="Model" required></label><br>
-    <label>Year: <input type="text" name="Year"></label><br>
-    <label>Exterior Color: <input type="text" name="Ext_Color"></label><br>
-    <label>Asking Price: <input type="text" name="Asking_Price" required></label><br>
-    <button type="submit">Add Car</button>
-</form>
+    <!-- Accumulus Validator -->
+    <script src="https://lint.page/kit/880bd5.js" crossorigin="anonymous"></script>
 
-<p><a href="https://web250-local.onrender.com/carapp/car_inventory.php">Back to Inventory</a></p>
+</head>
+
+<body>
+    <header><?php include("components/header250.php"); ?></header>
+
+    <main>
+        <h2>Add New Car</h2>
+
+        <?php if ($errors): ?>
+            <div style="color:red;">
+                <?php foreach ($errors as $err) echo "<p>$err</p>"; ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if ($success): ?>
+            <div style="color:green;">
+                <p><?= htmlspecialchars($success) ?></p>
+            </div>
+        <?php endif; ?>
+
+        <form method="post">
+            <label>VIN: <input type="text" name="VIN" required></label><br>
+            <label>Make: <input type="text" name="Make" required></label><br>
+            <label>Model: <input type="text" name="Model" required></label><br>
+            <label>Year: <input type="text" name="Year"></label><br>
+            <label>Exterior Color: <input type="text" name="Ext_Color"></label><br>
+            <label>Asking Price: <input type="text" name="Asking_Price" required></label><br>
+            <button type="submit">Add Car</button>
+        </form>
+    </main>
+
+
+    <h2><a href="car_inventory.php">Back to Inventory</a></h2>
+
+</body>
+
+</html>

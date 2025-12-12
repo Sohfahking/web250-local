@@ -43,46 +43,64 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Edit Car</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Index/Home">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Dajabre Torain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--  Link to CSS file(s) -->
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <title> Dajabre Torain's Daring Tiger | WEB250 | Home</title>
+
+    <!-- Accumulus Validator -->
+    <script src="https://lint.page/kit/880bd5.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
+    <header><?php include("components/header250.php"); ?></header>
 
-<h2>Edit Car: <?= htmlspecialchars($car['make'] . " " . $car['model']) ?></h2>
+    <main>
 
-<?php if (!empty($success)): ?>
-    <p style="color:green;">Car updated successfully!</p>
-<?php endif; ?>
+        <h2>Edit Car: <?= htmlspecialchars($car['make'] . " " . $car['model']) ?></h2>
 
-<form method="post">
-    <input type="hidden" name="vin" value="<?= htmlspecialchars($car['vin']) ?>">
+        <?php if (!empty($success)): ?>
+            <p style="color:green;">Car updated successfully!</p>
+        <?php endif; ?>
 
-    <label>Make:
-        <input type="text" name="make" value="<?= htmlspecialchars($car['make']) ?>">
-    </label><br>
+        <form method="post">
+            <input type="hidden" name="vin" value="<?= htmlspecialchars($car['vin']) ?>">
 
-    <label>Model:
-        <input type="text" name="model" value="<?= htmlspecialchars($car['model']) ?>">
-    </label><br>
+            <label>Make:
+                <input type="text" name="make" value="<?= htmlspecialchars($car['make']) ?>">
+            </label><br>
 
-    <label>Year:
-        <input type="text" name="year" value="<?= htmlspecialchars($car['year']) ?>">
-    </label><br>
+            <label>Model:
+                <input type="text" name="model" value="<?= htmlspecialchars($car['model']) ?>">
+            </label><br>
 
-    <label>Exterior Color:
-        <input type="text" name="ext_color" value="<?= htmlspecialchars($car['ext_color']) ?>">
-    </label><br>
+            <label>Year:
+                <input type="text" name="year" value="<?= htmlspecialchars($car['year']) ?>">
+            </label><br>
 
-    <label>Asking Price:
-        <input type="text" name="asking_price" value="<?= htmlspecialchars($car['asking_price']) ?>">
-    </label><br>
+            <label>Exterior Color:
+                <input type="text" name="ext_color" value="<?= htmlspecialchars($car['ext_color']) ?>">
+            </label><br>
 
-    <button type="submit">Save Changes</button>
-</form>
+            <label>Asking Price:
+                <input type="text" name="asking_price" value="<?= htmlspecialchars($car['asking_price']) ?>">
+            </label><br>
 
-<p><a href="car_inventory.php">Back to Inventory</a></p>
+            <button type="submit">Save Changes</button>
+        </form>
+    </main>
+    <h2><a href="car_inventory.php">Back to Inventory</a></h2>
 
 </body>
+
 </html>

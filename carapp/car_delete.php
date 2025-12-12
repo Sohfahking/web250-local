@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,39 +11,42 @@
     <!--  Link to CSS file(s) -->
     <link rel="stylesheet" href="styles/styles.css">
 
-    <title> Dajabre Torain's Daring Tiger | WEB250 | Edit Car</title>
+    <title> Dajabre Torain's Daring Tiger | WEB250 | Home</title>
 
     <!-- Accumulus Validator -->
     <script src="https://lint.page/kit/880bd5.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
     <header><?php include("components/header250.php"); ?></header>
 
-<?php
-// car_delete.php
-include __DIR__ . '/car_db.php';
+    <main>
 
-$vin = $_GET['VIN'] ?? '';
-if (!$vin) die("VIN missing.");
+        <?php
+        // car_delete.php
+        include __DIR__ . '/car_db.php';
 
-// Delete the car (images cascade)
-$stmt = $pdo->prepare("DELETE FROM cars WHERE vin = :vin");
-$deleted = $stmt->execute(['vin'=>$vin]);
+        $vin = $_GET['VIN'] ?? '';
+        if (!$vin) die("VIN missing.");
 
-?>
+        // Delete the car (images cascade)
+        $stmt = $pdo->prepare("DELETE FROM cars WHERE vin = :vin");
+        $deleted = $stmt->execute(['vin' => $vin]);
 
-<h2>Delete Car</h2>
-<?php if ($deleted): ?>
-    <p>Car with VIN <?= htmlspecialchars($vin) ?> deleted successfully.</p>
-<?php else: ?>
-    <p>There was an error deleting the car.</p>
-<?php endif; ?>
+        ?>
 
-    <p><a href="https://web250-local.onrender.com/carapp/car_inventory.php">Back to Inventory</a></p>
+        <h2>Delete Car</h2>
+        <?php if ($deleted): ?>
+            <p>Car with VIN <?= htmlspecialchars($vin) ?> deleted successfully.</p>
+        <?php else: ?>
+            <p>There was an error deleting the car.</p>
+        <?php endif; ?>
 
-    <footer><?php include("components/footer250.php"); ?></footer>
+        <p><a href="https://web250-local.onrender.com/carapp/car_inventory.php">Back to Inventory</a></p>
 
+        <footer><?php include("components/footer250.php"); ?></footer>
+    </main>
 </body>
 
 </html>

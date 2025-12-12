@@ -43,26 +43,52 @@ $stmt->execute(['vin' => $vin]);
 $images = $stmt->fetchAll();
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
-<h2>Add Image for Car VIN: <?= htmlspecialchars($vin) ?></h2>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Index/Home">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Dajabre Torain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<form action="" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="VIN" value="<?= htmlspecialchars($vin) ?>">
-    <label for="file">Choose an image:</label>
-    <input type="file" name="file" id="file" required>
-    <button type="submit">Upload</button>
-</form>
+    <!--  Link to CSS file(s) -->
+    <link rel="stylesheet" href="styles/styles.css">
 
-<?php if ($images): ?>
-    <h3>Current Images:</h3>
-    <div style="display:flex; flex-wrap: wrap; gap: 10px;">
-        <?php foreach ($images as $img): ?>
-            <div>
-                <img src="<?= "carapp/uploads/" . htmlspecialchars($img['filename']) ?>" 
-                     alt="Car Image" style="width:150px; height:auto; border:1px solid #ccc; border-radius:5px;">
+    <title> Dajabre Torain's Daring Tiger | WEB250 | Home</title>
+
+    <!-- Accumulus Validator -->
+    <script src="https://lint.page/kit/880bd5.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <header><?php include("components/header250.php"); ?></header>
+
+    <main>
+        <h2>Add Image for Car VIN: <?= htmlspecialchars($vin) ?></h2>
+
+        <form action="" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="VIN" value="<?= htmlspecialchars($vin) ?>">
+            <label for="file">Choose an image:</label>
+            <input type="file" name="file" id="file" required>
+            <button type="submit">Upload</button>
+        </form>
+
+        <?php if ($images): ?>
+            <h3>Current Images:</h3>
+            <div style="display:flex; flex-wrap: wrap; gap: 10px;">
+                <?php foreach ($images as $img): ?>
+                    <div>
+                        <img src="<?= "carapp/uploads/" . htmlspecialchars($img['filename']) ?>"
+                            alt="Car Image" style="width:150px; height:auto; border:1px solid #ccc; border-radius:5px;">
+                    </div>
+                <?php endforeach; ?>
             </div>
-        <?php endforeach; ?>
-    </div>
-<?php endif; ?>
+        <?php endif; ?>
+    </main>
+    <h2><a href="car_inventory.php">Back to Inventory</a></h2>
+</body>
 
-<p><a href="https://web250-local.onrender.com/carapp/car_inventory.php">Back to Inventory</a></p>
+</html>
