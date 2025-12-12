@@ -22,7 +22,7 @@ $model = $car['model'];
 $price = $car['asking_price'];
 
 // Optional fields — use defaults if missing
-$year         = $car['year']         ?? "(year unknown)";
+$year         = $car['year']         ?? "";
 $trim         = $car['trim']         ?? "";
 $color        = $car['ext_color']    ?? "";
 $interior     = $car['int_color']    ?? "";

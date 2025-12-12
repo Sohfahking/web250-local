@@ -13,7 +13,7 @@ if ($_FILES["file"]["error"] > 0) {
 echo "Upload: " . $_FILES["file"]["name"] . "<br>";
 echo "Type: " . $_FILES["file"]["type"] . "<br>";
 echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-echo "VIN: " . $vin . "<br>";
+echo "VIN: " . htmlspecialchars($vin) . "<br>";
 echo "Stored temporarily as: " . $_FILES["file"]["tmp_name"] . "<br><br>";
 
 // Ensure uploads folder exists
@@ -22,8 +22,9 @@ if (!is_dir($upload_dir)) {
     mkdir($upload_dir, 0755, true); // create folder if missing
 }
 
-$target_path = $upload_dir . basename($_FILES['file']['name']);
-$imagename = "uploads/" . basename($_FILES['file']['name']);
+$filename = basename($_FILES['file']['name']);
+$target_path = $upload_dir . $filename;
+$imagename = "uploads/" . $filename; // relative path for IMG tag
 
 echo "This script is running in: " . getcwd() . "<br>";
 echo "The uploaded file will be stored in the folder: " . $upload_dir . "<br>";
@@ -32,22 +33,23 @@ echo "The relative name of the file for use in IMG tag is " . $imagename . "<br>
 
 // Move uploaded file
 if (move_uploaded_file($_FILES['file']['tmp_name'], $target_path)) {
-    echo "The file " . basename($_FILES['file']['name']) . " has been uploaded<br>";
+    echo "The file " . $filename . " has been uploaded<br>";
 
-    // Insert into database
-    $file_name = $_FILES["file"]["name"];
-    $query = "INSERT INTO images (VIN, FILENAME) VALUES ('$vin', '$file_name')";
+    // Insert into database using PDO prepared statement
+    try {
+        $stmt = $pdo->prepare("INSERT INTO images (vin, filename) VALUES (:vin, :filename)");
+        $stmt->execute([
+            ':vin' => $vin,
+            ':filename' => $filename
+        ]);
 
-    if ($mysqli->query($query)) {
-        echo "<p>You have successfully entered $file_name into the database.</p>";
-    } else {
-        echo "Error entering $file_name into database: " . $mysqli->error . "<br>";
+        echo "<p>You have successfully entered $filename into the database.</p>";
+    } catch (PDOException $e) {
+        echo "Error entering $filename into database: " . $e->getMessage() . "<br>";
     }
 
-    $mysqli->close();
-
     echo "<img src='$imagename' width='150'><br>";
-    echo "<a href='AddImage.php?VIN=$vin'>Add another image for this car</a>";
+    echo "<a href='AddImage.php?VIN=" . urlencode($vin) . "'>Add another image for this car</a>";
 } else {
     echo "There was an error uploading the file, please try again!";
 }
