@@ -52,6 +52,10 @@
         </li>
       </ul>
 
+      <ul>
+        <li><a href="index.php?page=fizzbuzz" title="FizzBuzz Project">FizzBuzz</a></li>
+      </ul>
+
       <ul class="main-menu">
         <li><a href="" title="My Car App">My Cars</a>
          <ul class="sub-menu">
