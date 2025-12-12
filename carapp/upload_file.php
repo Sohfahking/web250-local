@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include __DIR__ . '/car_db.php';
 
 $vin = trim($_POST['VIN']);
 
@@ -54,5 +54,7 @@ if (move_uploaded_file($_FILES['file']['tmp_name'], $target_path)) {
     echo "There was an error uploading the file, please try again!";
 }
 
-include 'footer.php';
+
 ?>
+
+<h2><a href="car_inventory.php">Back to Inventory</a></h2>
