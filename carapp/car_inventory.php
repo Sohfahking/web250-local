@@ -58,7 +58,12 @@
 <body>
   <header><?php include("components/header250.php"); ?></header>
 
-  <h3>Current Inventory</h3>
+  <main>
+    
+  <h2>Current Inventory</h2>
+  <h2><a href="car_add.php?" >Add Car</a></h2>
+
+  
 
   <div class="auto-style1">
 
