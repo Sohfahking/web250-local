@@ -59,7 +59,7 @@ try {
     <tr>
         <th style="width: 15px">Make</th>
         <th style="width: 30px">Model</th>
-        <th style="width: 50px">Action</th>
+        <th style="width: 50px">Asking Price</th>
     </tr>
     <?php
     $class = "odd";
