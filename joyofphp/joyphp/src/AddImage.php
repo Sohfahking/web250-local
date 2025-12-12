@@ -1,42 +1,31 @@
 <?php
-// --- Start PHP before any HTML to avoid accidental output ---
-include 'db.php';
+require_once __DIR__ . '/db.php'; // MUST create $pdo
 
-// Validate VIN exists
 $vin = $_GET['VIN'] ?? null;
 
 if (!$vin) {
-    die("<p>Error: VIN not provided.</p>");
+    die("VIN not provided.");
 }
 
-// Sanitize value for output and SQL
-$vin_safe = htmlspecialchars($vin);
-$vin_db = $mysqli->real_escape_string($vin);
+// Fetch car details
+$stmt = $pdo->prepare("SELECT * FROM inventory WHERE VIN = :vin");
+$stmt->execute(['vin' => $vin]);
+$car = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Fetch vehicle details
-$query = "SELECT * FROM INVENTORY WHERE VIN='$vin_db'";
-
-if (!$result = $mysqli->query($query)) {
-    die("<p>Sorry, a vehicle with VIN $vin_safe cannot be found. Error: " . $mysqli->error . "</p>");
+if (!$car) {
+    die("Sorry, a vehicle with VIN of $vin cannot be found.");
 }
 
-// Default values to avoid undefined index warnings
-$year = $make = $model = $trim = $color = $interior = $mileage = $transmission = $price = "Not available";
-
-// Pull record if it exists
-if ($result_ar = mysqli_fetch_assoc($result)) {
-    $year         = htmlspecialchars($result_ar['YEAR'] ?? "");
-    $make         = htmlspecialchars($result_ar['Make'] ?? "");
-    $model        = htmlspecialchars($result_ar['Model'] ?? "");
-    $trim         = htmlspecialchars($result_ar['TRIM'] ?? "");
-    $color        = htmlspecialchars($result_ar['EXT_COLOR'] ?? "");
-    $interior     = htmlspecialchars($result_ar['INT_COLOR'] ?? "");
-    $mileage      = htmlspecialchars($result_ar['MILEAGE'] ?? "");
-    $transmission = htmlspecialchars($result_ar['TRANSMISSION'] ?? "");
-    $price        = htmlspecialchars($result_ar['ASKING_PRICE'] ?? "");
-}
+$year = $car['YEAR'];
+$make = $car['Make'];
+$model = $car['Model'];
+$trim = $car['TRIM'];
+$color = $car['EXT_COLOR'];
+$interior = $car['INT_COLOR'];
+$mileage = $car['MILEAGE'];
+$transmission = $car['TRANSMISSION'];
+$price = $car['ASKING_PRICE'];
 ?>
-
 <html>
 <head>
 <title>Sam's Used Cars - Image Upload</title>
@@ -45,44 +34,36 @@ if ($result_ar = mysqli_fetch_assoc($result)) {
 <h1>Sam's Used Cars</h1>
 <h3>Add Image</h3>
 
-<?php
-echo "<p>$color $year $make $model <br>VIN: $vin_safe</p>";
-
-if (is_numeric($price)) {
-    echo "<p>Asking Price: $" . number_format($price, 0) . "</p>";
-} else {
-    echo "<p>Asking Price: Not available</p>";
-}
-?>
+<p>
+    <?= htmlspecialchars("$color $year $make $model") ?><br>
+    VIN: <?= htmlspecialchars($vin) ?>
+</p>
+<p>
+    Asking Price: $<?= number_format($price, 0) ?>
+</p>
 
 <form action="upload_file.php" method="post" enctype="multipart/form-data">
     <label for="file">Filename:</label>
     <input type="file" name="file" id="file"><br>
-
-    <input name="VIN" type="hidden" value="<?php echo $vin_safe; ?>" />
-
+    <input type="hidden" name="VIN" value="<?= htmlspecialchars($vin) ?>">
     <input type="submit" name="submit" value="Submit">
 </form>
 
-<br/><br/>
+<br><br>
 
 <?php
-// Fetch images
-$query = "SELECT * FROM images WHERE VIN='$vin_db'";
+// Load existing images
+$stmt = $pdo->prepare("SELECT * FROM images WHERE VIN = :vin");
+$stmt->execute(['vin' => $vin]);
+$images = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-if ($result = $mysqli->query($query)) {
-    while ($result_ar = mysqli_fetch_assoc($result)) {
-        $image = htmlspecialchars($result_ar['FILENAME'] ?? "");
-
-        if ($image) {
-            echo "<img src='uploads/$image' width='250'> ";
-        }
-    }
+foreach ($images as $img) {
+    $file = htmlspecialchars($img['FILENAME']);
+    echo "<img src='uploads/$file' width='250'> ";
 }
 
-$mysqli->close();
 include 'footer.php';
 ?>
-
 </body>
 </html>
+
