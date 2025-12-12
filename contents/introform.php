@@ -1,22 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="description" content="Index/Home">
-    <meta name="keywords" content="HTML, CSS, JavaScript">
-    <meta name="author" content="Dajabre Torain">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!--  Link to CSS file(s) -->
-    <link rel="stylesheet" href="styles/default.css">
-
-    <title> Dajabre Torain's Daring Tiger | WEB215 |Introduction</title>
-
-    <!-- Dynamic header/footer JS -->
-    <script src="scripts/components215.js" defer></script>
-
-    <script src="https://lint.page/kit/6664c1.js" crossorigin="anonymous"></script>
 
     <style>
 
@@ -97,12 +78,8 @@ form p {
   }
 }
 
-    </style>
-</head>
+</style>
 
-<body>
-    <header></header>
-    <main>
         <h2>Introduction Form</h2>
 
         <form action="introprocess.php" method="post" enctype="multipart/form-data"
@@ -191,8 +168,4 @@ form p {
 
             <button type="submit">Generate Introduction</button>
         </form>
-    </main>
-    <footer></footer>
-</body>
-
-</html>
+  
