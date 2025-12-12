@@ -26,15 +26,12 @@ if ($db_type == "mysql") {
 }
 
 try {
-    $pdo = new PDO($dsn, $user, $pass, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-    ]);
-    // Optional: debug
-    // echo "Connected successfully to $db_type database.";
+    $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$db", $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Database connection failed: " . $e->getMessage());
 }
+?>
 
 // Example: how to use $pdo in pages
 // $stmt = $pdo->query("SELECT * FROM inventory ORDER BY Make");
