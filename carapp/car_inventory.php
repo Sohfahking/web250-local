@@ -58,54 +58,106 @@
 <body>
   <header><?php include("components/header250.php"); ?></header>
 
-  <h3>Current Inventory</h3>
+<div class="auto-style1">
+  <?php
+include __DIR__ . '/car_db.php';
 
-  <div class="auto-style1">
+//form submission for adding a new car
+$addMessage = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addCar'])) {
+    $vin   = trim($_POST['vin'] ?? '');
+    $make  = trim($_POST['make'] ?? '');
+    $model = trim($_POST['model'] ?? '');
+    $year  = trim($_POST['year'] ?? '');
+    $ext   = trim($_POST['ext_color'] ?? '');
+    $price = trim($_POST['asking_price'] ?? '');
 
-    <?php
-    include __DIR__ . '/car_db.php';
-
-    // Query all cars
-    $stmt = $pdo->query("SELECT * FROM inventory ORDER BY make, model");
-    $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    // Start the table
-    echo "<table id='Grid' style='width: 80%'>";
-    echo "<tr>";
-    echo "<th>Make</th>";
-    echo "<th>Model</th>";
-    echo "<th>Asking Price</th>";
-    echo "<th>Action</th>";
-    echo "</tr>";
-
-    $class = "odd";
-
-    // Loop through rows
-    foreach ($cars as $car) {
-
-      // Support both lowercase and uppercase column names
-      $vin   = htmlspecialchars($car['vin']   ?? $car['VIN']   ?? '');
-      $make  = htmlspecialchars($car['make']  ?? $car['Make']  ?? '');
-      $model = htmlspecialchars($car['model'] ?? $car['Model'] ?? '');
-      $price = htmlspecialchars($car['asking_price'] ?? $car['ASKING_PRICE'] ?? '');
-
-      echo "<tr class='$class'>";
-      echo "<td><a href='car_select.php?VIN=$vin'>$make</a></td>";
-      echo "<td>$model</td>";
-      echo "<td>$$price</td>";
-
-      echo "<td>
-            <a href='car_edit.php?VIN=$vin'>Edit</a> |
-            <a href='car_delete.php?VIN=$vin' onclick=\"return confirm('Delete this car?');\">Delete</a>
-          </td>";
-      echo "</tr>";
-
-      // Flip row style
-      $class = ($class === "odd") ? "even" : "odd";
+    if ($vin && $make && $model && $price) {
+        $stmt = $pdo->prepare("
+            INSERT INTO inventory (vin, make, model, year, ext_color, asking_price)
+            VALUES (:vin, :make, :model, :year, :ext_color, :price)
+        ");
+        try {
+            $stmt->execute([
+                ':vin'       => $vin,
+                ':make'      => $make,
+                ':model'     => $model,
+                ':year'      => $year,
+                ':ext_color' => $ext,
+                ':price'     => $price
+            ]);
+            $addMessage = "<p style='color:green; font-weight:bold;'>Car $make $model added successfully!</p>";
+        } catch (PDOException $e) {
+            $addMessage = "<p style='color:red;'>Error adding car: " . htmlspecialchars($e->getMessage()) . "</p>";
+        }
+    } else {
+        $addMessage = "<p style='color:red;'>VIN, Make, Model, and Asking Price are required.</p>";
     }
+}
 
-    echo "</table>";
+// Fetch all cars
+$stmt = $pdo->query("SELECT vin, make, model, year, ext_color, asking_price FROM inventory ORDER BY make, model");
+$cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+<h2>Daring Tiger's Cars Inventory</h2>
+
+<!-- Show add message -->
+<?= $addMessage ?>
+
+<!-- Add New Car Form -->
+<h3>Add New Car</h3>
+<form method="post">
+    <label>VIN: <input type="text" name="vin" required></label><br>
+    <label>Make: <input type="text" name="make" required></label><br>
+    <label>Model: <input type="text" name="model" required></label><br>
+    <label>Year: <input type="text" name="year"></label><br>
+    <label>Ext Color: <input type="text" name="ext_color"></label><br>
+    <label>Asking Price: <input type="number" step="0.01" name="asking_price" required></label><br>
+    <input type="submit" name="addCar" value="Add Car">
+</form>
+
+<hr>
+
+<!-- Inventory Table -->
+<table id="Grid" style="width:80%; border-collapse: collapse;">
+    <tr style="background-color:#ccc;">
+        <th>VIN</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Ext Color</th>
+        <th>Asking Price</th>
+        <th>Action</th>
+    </tr>
+    <?php
+    $class = "odd";
+    foreach ($cars as $car):
+        $vin   = htmlspecialchars($car['vin'] ?? '');
+        $make  = htmlspecialchars($car['make'] ?? '');
+        $model = htmlspecialchars($car['model'] ?? '');
+        $year  = htmlspecialchars($car['year'] ?? '');
+        $ext   = htmlspecialchars($car['ext_color'] ?? '');
+        $price = htmlspecialchars($car['asking_price'] ?? '');
+        ?>
+        <tr class="<?= $class ?>" style="background-color:<?= $class === 'odd' ? '#f9f9f9' : '#fff' ?>;">
+            <td><?= $vin ?></td>
+            <td><?= $make ?></td>
+            <td><?= $model ?></td>
+            <td><?= $year ?></td>
+            <td><?= $ext ?></td>
+            <td>$<?= $price ?></td>
+            <td>
+                <a href="car_edit.php?vin=<?= $vin ?>">Edit</a> |
+                <a href="car_delete.php?vin=<?= $vin ?>" onclick="return confirm('Delete this car?');">Delete</a>
+            </td>
+        </tr>
+        <?php
+        $class = ($class === "odd") ? "even" : "odd";
+    endforeach;
     ?>
+</table>
+
   </div>
 
   <footer><?php include("components/footer250.php"); ?></footer>
