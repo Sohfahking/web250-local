@@ -2,13 +2,14 @@
 include 'db.php';
 
 try {
-    // Fetch all cars from inventory ordered by Make
-    $stmt = $pdo->query("SELECT * FROM inventory ORDER BY Make");
-    $rows = $stmt->fetchAll();
+    $stmt = $pdo->query("SELECT * FROM inventory ORDER BY make");
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
-    die("Error fetching cars: " . $e->getMessage());
+    echo "<p style='color:red'>Database error: " . htmlspecialchars($e->getMessage()) . "</p>";
+    $rows = []; // fallback so foreach won't fail
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,22 +31,21 @@ try {
         </tr>
     </thead>
     <tbody>
-        <?php
+        <?php 
         $class = "odd";
-        if ($rows) {
-            foreach ($rows as $row):
+        foreach ($rows as $row): 
+            $make  = htmlspecialchars($row['make'] ?? '');
+            $model = htmlspecialchars($row['model'] ?? '');
+            $price = number_format($row['asking_price'] ?? 0, 2);
         ?>
-            <tr class="<?= $class ?>">
-                <td><?= htmlspecialchars($row['Make']) ?></td>
-                <td><?= htmlspecialchars($row['Model']) ?></td>
-                <td>$<?= number_format($row['ASKING_PRICE'], 2) ?></td>
-            </tr>
-        <?php
-                $class = ($class == "odd") ? "even" : "odd";
-            endforeach;
-        } else {
-            echo "<tr><td colspan='3'>No cars in inventory.</td></tr>";
-        }
+        <tr class="<?= $class ?>">
+            <td><?= $make ?></td>
+            <td><?= $model ?></td>
+            <td>$<?= $price ?></td>
+        </tr>
+        <?php 
+        $class = ($class == "odd") ? "even" : "odd";
+        endforeach; 
         ?>
     </tbody>
 </table>
@@ -53,4 +53,5 @@ try {
 <?php include 'footer.php'; ?>
 </body>
 </html>
+
 
