@@ -45,5 +45,5 @@ function fizzBuzz() {
 
     output += "</ol>";
 
-    document.getElementById("outputArea").innerHTML = output;
+    document.getElementById("output").innerHTML = output;
 }
