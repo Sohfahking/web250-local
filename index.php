@@ -53,7 +53,7 @@
       </ul>
 
       <ul>
-        <li><a href="./joyofphp/joyphp/src/index.php" title="Joy of PHP">My Cars</a></li>
+        <li><a href="./carapp/index.php" title="My Car App">My Cars</a></li>
       </ul>
 
       <ul class="main-menu">
