@@ -29,7 +29,7 @@ $success = $stmt->execute([
 <html>
 <head><title>Car Updated</title></head>
 <body>
-
+<header><?php include("components/header250.php"); ?></header>
 <h2>Daring Tiger's Cars</h2>
 
 <?php if ($success): ?>
@@ -39,3 +39,4 @@ $success = $stmt->execute([
 <?php endif; ?>
 
 <p><a href="viewCars.php">Return to Inventory</a></p>
+<footer><?php include("components/footer250.php"); ?></footer>
