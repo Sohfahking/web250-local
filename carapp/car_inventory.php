@@ -1,5 +1,5 @@
 <?php
-include 'config.php'; // Supplies $pdo (PDO connection)
+include 'car_db.php'; // Supplies $pdo (PDO connection)
 
 // Query all cars
 $stmt = $pdo->query("SELECT * FROM inventory ORDER BY make, model");
@@ -42,5 +42,4 @@ foreach ($cars as $car) {
 
 echo "</table>";
 
-include 'footer.php';
 ?>

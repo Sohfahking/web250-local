@@ -79,19 +79,26 @@
     </nav>
   </header>
 
-  <main>
-    <?php
-    // Build path to content
+<main>
+<?php
+// Determine path based on page
+if (str_starts_with($page, 'car_')) {
+    // Map page to carapp folder
+    $file = "carapp/" . substr($page, 7) . ".php"; // remove 'carapp_' prefix
+} else {
+    // Normal contents folder
     $file = "contents/" . $page . ".php";
+}
 
-    // Load if exists, otherwise load a fallback error page
-    if (file_exists($file)) {
-      include($file);
-    } else {
-      include("contents/404.php");
-    }
-    ?>
-  </main>
+// Load file if exists, else show 404
+if (file_exists($file)) {
+    include($file);
+} else {
+    include("contents/404.php");
+}
+?>
+</main>
+
 
   <footer>
     <nav>

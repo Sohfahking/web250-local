@@ -1,5 +1,5 @@
 <?php
-// config.php
+// car_db.php
 $host = getenv('DB_HOST');
 $db   = getenv('DB_DATABASE');
 $user = getenv('DB_USERNAME');
