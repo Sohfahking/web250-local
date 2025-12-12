@@ -46,7 +46,7 @@ try {
             background-color: white;
         }
         .auto-style1 {
-            text-align: center;
+            text-align: left;
         }
     </style>
 </head>
@@ -67,9 +67,9 @@ try {
     $vin = htmlspecialchars($car['vin'] ?? $car['VIN'] ?? '');
     $make = htmlspecialchars($car['make'] ?? $car['Make'] ?? '');
     $model = htmlspecialchars($car['model'] ?? $car['Model'] ?? '');
-    $price = number_format($row['asking_price'] ?? 0, 2);
+    $price = htmlspecialchars($car['asking_price'] ?? $car['ASKING_PRICE'] ?? '');
 
-    echo "<tr class=\"$class\">";
+    echo "<tr class='$class'>";
     echo "<td><a href='viewcar.php?VIN=$vin'>$make</a></td>";
     echo "<td>$model</td>";
     echo "<td>$price</td>";

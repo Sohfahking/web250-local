@@ -32,7 +32,7 @@
             background-color: white;
         }
         .auto-style1 {
-            text-align: center;
+            text-align: left;
         }
     </style>
 </head>
