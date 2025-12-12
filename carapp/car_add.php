@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!$errors) {
         $stmt = $pdo->prepare("
-            INSERT INTO inventory (vin, make, model, year, ext_color, asking_price)
+            INSERT INTO cars (vin, make, model, year, ext_color, asking_price)
             VALUES (:vin, :make, :model, :year, :ext, :price)
         ");
         $successInsert = $stmt->execute([
