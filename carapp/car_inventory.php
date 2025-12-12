@@ -8,17 +8,13 @@ if (isset($_POST['add_car'])) {
     $make  = $_POST['Make'] ?? '';
     $model = $_POST['Model'] ?? '';
     $year  = $_POST['Year'] ?? null;
-    $trim  = $_POST['Trim'] ?? '';
     $ext_color = $_POST['Ext_Color'] ?? '';
-    $int_color = $_POST['Int_Color'] ?? '';
-    $mileage = $_POST['Mileage'] ?? null;
-    $transmission = $_POST['Transmission'] ?? '';
     $price = $_POST['Asking_Price'] ?? 0;
 
     $stmt = $pdo->prepare("
         INSERT INTO inventory 
-        (VIN, Make, Model, Year, Trim, Ext_Color, Int_Color, Mileage, Transmission, Asking_Price) 
-        VALUES (:vin, :make, :model, :year, :trim, :ext_color, :int_color, :mileage, :transmission, :price)
+        (VIN, Make, Model, Year, Ext_Color, Asking_Price) 
+        VALUES (:vin, :make, :model, :year, :ext_color, :price)
     ");
 
     if ($stmt->execute([
@@ -26,11 +22,7 @@ if (isset($_POST['add_car'])) {
         'make' => $make,
         'model' => $model,
         'year' => $year,
-        'trim' => $trim,
         'ext_color' => $ext_color,
-        'int_color' => $int_color,
-        'mileage' => $mileage,
-        'transmission' => $transmission,
         'price' => $price
     ])) {
         $addMsg = "Vehicle $make $model added successfully!";
@@ -53,18 +45,13 @@ if (isset($_POST['edit_car'])) {
     $make  = $_POST['Make'] ?? '';
     $model = $_POST['Model'] ?? '';
     $year  = $_POST['Year'] ?? null;
-    $trim  = $_POST['Trim'] ?? '';
     $ext_color = $_POST['Ext_Color'] ?? '';
-    $int_color = $_POST['Int_Color'] ?? '';
-    $mileage = $_POST['Mileage'] ?? null;
-    $transmission = $_POST['Transmission'] ?? '';
     $price = $_POST['Asking_Price'] ?? 0;
 
     $stmt = $pdo->prepare("
         UPDATE inventory SET 
-        Make = :make, Model = :model, Year = :year, Trim = :trim,
-        Ext_Color = :ext_color, Int_Color = :int_color, Mileage = :mileage,
-        Transmission = :transmission, Asking_Price = :price
+        Make = :make, Model = :model, Year = :year,
+        Ext_Color = :ext_color, Asking_Price = :price
         WHERE VIN = :vin
     ");
 
@@ -72,11 +59,7 @@ if (isset($_POST['edit_car'])) {
         'make' => $make,
         'model' => $model,
         'year' => $year,
-        'trim' => $trim,
         'ext_color' => $ext_color,
-        'int_color' => $int_color,
-        'mileage' => $mileage,
-        'transmission' => $transmission,
         'price' => $price,
         'vin' => $vin
     ])) {
@@ -106,11 +89,7 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
     Make: <input name="Make" required><br>
     Model: <input name="Model" required><br>
     Year: <input name="Year"><br>
-    Trim: <input name="Trim"><br>
     Ext Color: <input name="Ext_Color"><br>
-    Int Color: <input name="Int_Color"><br>
-    Mileage: <input name="Mileage"><br>
-    Transmission: <input name="Transmission"><br>
     Asking Price: <input name="Asking_Price"><br>
     <input type="submit" name="add_car" value="Add Car">
 </form>
@@ -122,11 +101,7 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <th>Make</th>
         <th>Model</th>
         <th>Year</th>
-        <th>Trim</th>
         <th>Ext Color</th>
-        <th>Int Color</th>
-        <th>Mileage</th>
-        <th>Transmission</th>
         <th>Asking Price</th>
         <th>Actions</th>
     </tr>
@@ -137,11 +112,7 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $make = htmlspecialchars($car['Make'] ?? $car['make']);
         $model = htmlspecialchars($car['Model'] ?? $car['model']);
         $year = htmlspecialchars($car['Year'] ?? $car['year']);
-        $trim = htmlspecialchars($car['Trim'] ?? $car['trim']);
         $ext_color = htmlspecialchars($car['Ext_Color'] ?? $car['ext_color']);
-        $int_color = htmlspecialchars($car['Int_Color'] ?? $car['int_color']);
-        $mileage = htmlspecialchars($car['Mileage'] ?? $car['mileage']);
-        $transmission = htmlspecialchars($car['Transmission'] ?? $car['transmission']);
         $price = htmlspecialchars($car['Asking_Price'] ?? $car['asking_price']);
     ?>
         <tr class="<?= $class ?>">
@@ -149,11 +120,7 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <td><?= $make ?></td>
             <td><?= $model ?></td>
             <td><?= $year ?></td>
-            <td><?= $trim ?></td>
             <td><?= $ext_color ?></td>
-            <td><?= $int_color ?></td>
-            <td><?= $mileage ?></td>
-            <td><?= $transmission ?></td>
             <td>$<?= $price ?></td>
             <td>
                 <a href="?edit_vin=<?= $vin ?>">Edit</a> |
@@ -181,11 +148,7 @@ if (isset($_GET['edit_vin'])):
         Make: <input name="Make" value="<?= htmlspecialchars($car['Make']) ?>"><br>
         Model: <input name="Model" value="<?= htmlspecialchars($car['Model']) ?>"><br>
         Year: <input name="Year" value="<?= htmlspecialchars($car['Year']) ?>"><br>
-        Trim: <input name="Trim" value="<?= htmlspecialchars($car['Trim']) ?>"><br>
         Ext Color: <input name="Ext_Color" value="<?= htmlspecialchars($car['Ext_Color']) ?>"><br>
-        Int Color: <input name="Int_Color" value="<?= htmlspecialchars($car['Int_Color']) ?>"><br>
-        Mileage: <input name="Mileage" value="<?= htmlspecialchars($car['Mileage']) ?>"><br>
-        Transmission: <input name="Transmission" value="<?= htmlspecialchars($car['Transmission']) ?>"><br>
         Asking Price: <input name="Asking_Price" value="<?= htmlspecialchars($car['Asking_Price']) ?>"><br>
         <input type="submit" name="edit_car" value="Save Changes">
     </form>

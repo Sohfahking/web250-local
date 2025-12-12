@@ -24,17 +24,12 @@ try {
     $year = $car['year'] ?? '';
     $make = $car['make'] ?? '';
     $model = $car['model'] ?? '';
-    $trim = $car['trim'] ?? '';
     $color = $car['ext_color'] ?? '';
-    $interior = $car['int_color'] ?? '';
-    $mileage = $car['mileage'] ?? '';
-    $transmission = $car['transmission'] ?? '';
     $price = $car['asking_price'] ?? '';
 
     echo "<p>$year " . htmlspecialchars($make) . " " . htmlspecialchars($model) . "</p>";
     echo "<p>Asking Price: $" . number_format($price, 2) . "</p>";
     echo "<p>Exterior Color: " . htmlspecialchars($color) . "</p>";
-    echo "<p>Interior Color: " . htmlspecialchars($interior) . "</p>";
 
 } catch (PDOException $e) {
     echo "<p>Error fetching car: " . $e->getMessage() . "</p>";
