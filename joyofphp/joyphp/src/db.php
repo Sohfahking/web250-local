@@ -1,29 +1,43 @@
 <?php
-// Check if we are on localhost or live server
+// Determine environment
 if ($_SERVER['SERVER_NAME'] == 'localhost') {
-    // Local XAMPP settings
-    $host = "localhost";
-    $user = "root";
-    $pass = "";          //local XAMPP password
-    $db   = "Cars";      //local database name
+    // Local XAMPP MySQL
+    $db_type = "mysql";
+    $host    = "localhost";
+    $db      = "Cars";
+    $user    = "root";
+    $pass    = "";
+    $port    = 3306;
 } else {
-    // InfinityFree live settings
-    $host = getenv('DB_HOST');
-    $user = getenv('DB_USERNAME');
-    $pass = getenv('DB_PASSWORD');
-    $db   = getenv('DB_DATABASE'); 
+    // Live Render PostgreSQL
+    $db_type = "pgsql";
+    $host    = getenv('DB_HOST');      // e.g., dpg-xxx.render.com
+    $db      = getenv('DB_DATABASE');  // your Render database name
+    $user    = getenv('DB_USERNAME');  // your Render DB user
+    $pass    = getenv('DB_PASSWORD');  // your Render DB password
+    $port    = getenv('DB_PORT') ?: 5432;
 }
 
-
-// Create connection
-$mysqli = new mysqli($host, $user, $pass, $db);
-
-// Check connection
-if ($mysqli->connect_error) {
-    die("Connection failed: " . $mysqli->connect_error);
+// Build DSN for PDO
+if ($db_type == "mysql") {
+    $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=utf8";
+} else { // pgsql
+    $dsn = "pgsql:host=$host;port=$port;dbname=$db";
 }
-// Optional: set charset
-$mysqli->set_charset("utf8");
+
+try {
+    $pdo = new PDO($dsn, $user, $pass, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ]);
+    // Optional: debug
+    // echo "Connected successfully to $db_type database.";
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
+}
+
+// Example: how to use $pdo in pages
+// $stmt = $pdo->query("SELECT * FROM inventory ORDER BY Make");
+// $rows = $stmt->fetchAll();
 ?>
-
 

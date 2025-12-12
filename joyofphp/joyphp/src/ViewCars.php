@@ -1,16 +1,20 @@
 <?php
-// Include the database connection
 include 'db.php';
 
-// Query the inventory
-$query = "SELECT * FROM inventory ORDER BY Make";
-$result = $mysqli->query($query);
-
-// Check for errors
-if (!$result) {
-    die("Error getting cars from the database: " . $mysqli->error);
-}
+$stmt = $pdo->query("SELECT * FROM inventory ORDER BY Make");
+$rows = $stmt->fetchAll();
 ?>
+
+<table>
+<?php foreach ($rows as $row): ?>
+<tr>
+    <td><?= htmlspecialchars($row['Make']) ?></td>
+    <td><?= htmlspecialchars($row['Model']) ?></td>
+    <td>$<?= number_format($row['ASKING_PRICE'], 2) ?></td>
+</tr>
+<?php endforeach; ?>
+</table>
+
 
 <!DOCTYPE html>
 <html lang="en">
