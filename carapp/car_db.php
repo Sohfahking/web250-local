@@ -21,9 +21,14 @@ try {
                 vin VARCHAR(20) PRIMARY KEY,
                 make VARCHAR(50) NOT NULL,
                 model VARCHAR(50) NOT NULL,
-                asking_price NUMERIC(10,2) NOT NULL
+                year INT,
+                trim VARCHAR(50),
+                ext_color VARCHAR(50),
+                int_color VARCHAR(50),
+                mileage INT,
+                transmission VARCHAR(50),
+                asking_price NUMERIC(10,2) NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                
             );
         ";
         $pdo->exec($createInventory);
@@ -37,9 +42,9 @@ try {
     if (!$imagesExists) {
         $createImages = "
             CREATE TABLE images (
-                ImageID SERIAL PRIMARY KEY,
-                vin VARCHAR(20) REFERENCES inventory(VIN) ON DELETE CASCADE,
-                filename VARCHAR(255) NOT NULL
+                image_id SERIAL PRIMARY KEY,
+                vin VARCHAR(20) REFERENCES inventory(vin) ON DELETE CASCADE,
+                filename VARCHAR(255) NOT NULL,
                 uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
         ";

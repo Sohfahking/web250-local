@@ -30,7 +30,7 @@ $success = $stmt->execute([
 <head><title>Car Updated</title></head>
 <body>
 
-<h1>Sam's Used Cars</h1>
+<h2>Daring Tiger's Cars</h2>
 
 <?php if ($success): ?>
     <p><strong><?= htmlspecialchars("$make $model") ?></strong> was updated successfully.</p>
