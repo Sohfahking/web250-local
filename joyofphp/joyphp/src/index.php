@@ -20,7 +20,7 @@
 <h2><a href='https://web250-local.onrender.com/index.php?page=index' title='Index'>Web 250 Home</a></h2>
 <h2>Introduction</h2>
 <p>The Joy of PHP book walks you through creating a website for <strong>
-<a href="samsusedcars.html">Sam's Used Cars</a></strong>.&nbsp; 
+<a href="samsusedcars.php">Sam's Used Cars</a></strong>.&nbsp; 
 All the sample code in the book is conveniently created here.&nbsp; To get 
 started, you'll need to make sure that you have PHP and mySQL running on your 
 machine.&nbsp; Here are the links to get started.&nbsp; </p>
