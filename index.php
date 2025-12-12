@@ -18,6 +18,7 @@
   $titles = [
     "index"       => "Dajabre Torain's Daring Tiger | WEB250 | Home",
     "intro250"    => "Dajabre Torain's Daring Tiger | WEB250 | Introduction",
+    "introform"   => "Dajabre Torain's Daring Tiger | WEB250 | Intro Form",
     "contract250" => "Dajabre Torain's Daring Tiger | WEB250 | Course Contract",
     "brand250"    => "Dajabre Torain's Daring Tiger | WEB250 | Brand",
     "template250" => "Dajabre Torain's Daring Tiger | WEB250 | Template"
@@ -44,6 +45,7 @@
         <li><a href="#" title="Contents">Contents ↓</a>
           <ul class="sub-menu">
             <li><a href="index.php?page=intro250" title="My Introduction">Introduction</a></li>
+            <li><a href="index.php?page=introform" title="Edit Intro">Intro Form</a></li>
             <li><a href="index.php?page=contract250" title="My Contract">Contract</a></li>
             <li><a href="index.php?page=brand250" title="My Brand">Brand</a></li>
             <li><a href="index.php?page=template250" title="Temp">Template</a></li>
@@ -57,7 +59,7 @@
       </ul>
 
       <ul class="main-menu">
-        <li><a href="" title="My Car App">My Cars</a>
+        <li><a href="" title="My Car App">My Cars ↓</a>
          <ul class="sub-menu">
             <li><a href="./carapp/car_inventory.php" title="Sam's Used Cars">Inventory</a></li>
           </ul>
