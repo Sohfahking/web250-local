@@ -17,7 +17,7 @@
 <body background="bg.jpg">
 
 <p><img alt="The Joy of PHP" height="87" src="joy_logo.jpg" width="809" /></p>
-<h2><a href='/web250-local/index.php?p=index' title='Index'>Web 250 Home</a></h2>
+<h2><a href='https://web250-local.onrender.com/index.php?page=index' title='Index'>Web 250 Home</a></h2>
 <h2>Introduction</h2>
 <p>The Joy of PHP book walks you through creating a website for <strong>
 <a href="samsusedcars.html">Sam's Used Cars</a></strong>.&nbsp; 

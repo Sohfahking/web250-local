@@ -24,7 +24,7 @@
 	</tr>
 </table>
 </h2>
-<h2><a href='/web250-local/index.php?p=index' title='Index'>Web 250 Home</a></h2>
+<h2><a href='https://web250-local.onrender.com/index.php?page=index' title='Index'>Web 250 Home</a></h2>
 <hr />
 <p>Welcome to Sam's Used car lot!</p>
 <p><a href="formEnterCar.htm">Add a Car</a></p>
