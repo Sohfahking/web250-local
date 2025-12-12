@@ -29,7 +29,7 @@ $vin = $_GET['VIN'] ?? '';
 if (!$vin) die("VIN missing.");
 
 // Delete the car (images cascade)
-$stmt = $pdo->prepare("DELETE FROM inventory WHERE vin = :vin");
+$stmt = $pdo->prepare("DELETE FROM cars WHERE vin = :vin");
 $deleted = $stmt->execute(['vin'=>$vin]);
 
 ?>
