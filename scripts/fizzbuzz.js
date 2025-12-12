@@ -7,14 +7,14 @@ function fizzBuzz() {
     let defaultWord = document.getElementById("defaultWord").value.trim();
     let count = parseInt(document.getElementById("count").value);
 
-    let word1 = document.getElementById("word1").value.trim();
-    let div1 = parseInt(document.getElementById("div1").value);
+    let w1 = document.getElementById("word1").value.trim();
+    let d1 = parseInt(document.getElementById("div1").value);
 
-    let word2 = document.getElementById("word2").value.trim();
-    let div2 = parseInt(document.getElementById("div2").value);
+    let w2 = document.getElementById("word2").value.trim();
+    let d2 = parseInt(document.getElementById("div2").value);
 
-    let word3 = document.getElementById("word3").value.trim();
-    let div3 = parseInt(document.getElementById("div3").value);
+    let w3 = document.getElementById("word3").value.trim();
+    let d3 = parseInt(document.getElementById("div3").value);
 
     if (!first || !last) {
         alert("First and last name are required.");
@@ -34,9 +34,9 @@ function fizzBuzz() {
     for (let n = 1; n <= count; n++) {
         let text = "";
 
-        if (word1 && div1 && n % div1 === 0) text += word1;
-        if (word2 && div2 && n % div2 === 0) text += word2;
-        if (word3 && div3 && n % div3 === 0) text += word3;
+        if (w1 && d1 && n % d1 === 0) text += w1;
+        if (w2 && d2 && n % d2 === 0) text += w2;
+        if (w3 && d3 && n % d3 === 0) text += w3;
 
         if (!text) text = defaultWord;
 
@@ -45,5 +45,6 @@ function fizzBuzz() {
 
     output += "</ol>";
 
+    // FIX: Insert output into the correct area
     document.getElementById("output").innerHTML = output;
 }
