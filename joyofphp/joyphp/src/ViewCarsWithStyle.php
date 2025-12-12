@@ -72,7 +72,7 @@ try {
     echo "<tr class='$class'>";
     echo "<td><a href='viewcar.php?VIN=$vin'>$make</a></td>";
     echo "<td>$model</td>";
-    echo "<td>$<$price></td>";
+    echo "<td>$$price</td>";
     echo "</tr>";
 
     $class = ($class == "odd") ? "even" : "odd";
