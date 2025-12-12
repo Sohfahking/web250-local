@@ -64,13 +64,19 @@ try {
     <?php
     $class = "odd";
     foreach ($cars as $car) {
-        echo "<tr class=\"$class\">";
-        echo "<td><a href='viewcar.php?VIN=" . htmlspecialchars($car['VIN']) . "'>" . htmlspecialchars($car['Make']) . "</a></td>";
-        echo "<td>" . htmlspecialchars($car['Model']) . "</td>";
-        echo "<td><a href='AddImage.php?VIN=" . htmlspecialchars($car['VIN']) . "'>Add Image</a></td>";
-        echo "</tr>\n";
-        $class = ($class == "odd") ? "even" : "odd";
-    }
+    $vin = htmlspecialchars($car['vin'] ?? $car['VIN'] ?? '');
+    $make = htmlspecialchars($car['make'] ?? $car['Make'] ?? '');
+    $model = htmlspecialchars($car['model'] ?? $car['Model'] ?? '');
+
+    echo "<tr class=\"$class\">";
+    echo "<td><a href='viewcar.php?VIN=$vin'>$make</a></td>";
+    echo "<td>$model</td>";
+    echo "<td><a href='AddImage.php?VIN=$vin'>Add Image</a></td>";
+    echo "</tr>";
+
+    $class = ($class == "odd") ? "even" : "odd";
+}
+
     ?>
 </table>
 
