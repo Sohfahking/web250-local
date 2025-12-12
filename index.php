@@ -53,7 +53,7 @@
       </ul>
 
       <ul>
-        <li><a href="./joyofphp/joyphp/src/index.php" title="Joy of PHP">Joy of PHP</a></li>
+        <li><a href="./joyofphp/joyphp/src/index.php" title="Joy of PHP">My Cars</a></li>
       </ul>
 
       <ul class="main-menu">
@@ -66,11 +66,9 @@
       </ul>
 
       <ul class="main-menu">
-        <li><a href="./joyofphp/joyphp/src/samsusedcars.php" title="Sam's Used Cars">
-            Sam's Used Cars ↓</a>
-          <ul class="sub-menu">
-            <li>Car Ver 1</li>
-            <li>Car Ver 2</li>
+        <li><a href="./joyofphp/joyphp/src/index.php" title="Joy of PHP">Joy of PHP ↓</a></li>
+        <ul class="sub-menu">
+            <li><a href="./joyofphp/joyphp/src/samsusedcars.php" title="Sam's Used Cars">Sam's Used Cars </a></li>
           </ul>
         </li>
       </ul>
