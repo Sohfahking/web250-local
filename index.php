@@ -52,8 +52,12 @@
         </li>
       </ul>
 
-      <ul>
-        <li><a href="./carapp/index.php" title="My Car App">My Cars</a></li>
+      <ul class="main-menu">
+        <li><a href="" title="My Car App">My Cars</a>
+         <ul class="sub-menu">
+            <li><a href="./carapp/viewCars.php" title="Sam's Used Cars">Inventory</a></li>
+          </ul>
+        </li>
       </ul>
 
       <ul class="main-menu">
@@ -66,7 +70,7 @@
       </ul>
 
       <ul class="main-menu">
-        <li><a href="./joyofphp/joyphp/src/index.php" title="Joy of PHP">Joy of PHP ↓</a></li>
+        <li><a href="./joyofphp/joyphp/src/index.php" title="Joy of PHP">Joy of PHP ↓</a>
         <ul class="sub-menu">
             <li><a href="./joyofphp/joyphp/src/samsusedcars.php" title="Sam's Used Cars">Sam's Used Cars </a></li>
           </ul>
