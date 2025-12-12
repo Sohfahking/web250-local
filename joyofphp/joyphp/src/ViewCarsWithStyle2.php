@@ -73,7 +73,7 @@ foreach ($cars as $car) {
     echo "<tr class='$class'>";
     echo "<td><a href='viewcar.php?VIN=$vin'>$make</a></td>";
     echo "<td>$model</td>";
-    echo "<td>$price</td>";
+    echo "<td>$$price</td>";
 
     echo "<td>
             <a href='FormEdit.php?VIN=$vin'>Edit</a> |
