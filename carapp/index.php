@@ -1,5 +1,5 @@
 <?php
-include 'config_db.php';
+include 'config.php';
 
 // --- Handle form submission (Insert / Update) ---
 $feedback = '';
