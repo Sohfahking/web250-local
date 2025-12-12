@@ -1,5 +1,5 @@
 <?php 
-include 'db.php';
+include __DIR__ . '/car_db.php';
 
 // Get VIN from query string safely
 $vin = $_GET['VIN'] ?? '';

@@ -88,12 +88,11 @@
 <?php
 // Determine path based on page
 if (str_starts_with($page, 'car_')) {
-    // Map page to carapp folder
-    $file = "carapp/" . substr($page, 7) . ".php"; // remove 'carapp_' prefix
+    $file = __DIR__ . "/carapp/" . substr($page, 4) . ".php"; // remove 'car_' prefix
 } else {
-    // Normal contents folder
-    $file = "contents/" . $page . ".php";
+    $file = __DIR__ . "/contents/" . $page . ".php";
 }
+
 
 // Load file if exists, else show 404
 if (file_exists($file)) {

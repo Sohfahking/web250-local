@@ -1,5 +1,5 @@
 <?php
-include 'car_db.php';
+include __DIR__ . '/car_db.php';
 
 // Capture form values
 $vin   = $_POST['VIN'] ?? '';
