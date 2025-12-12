@@ -172,4 +172,4 @@
 <div id="results"></div>
 
 <!-- Load external script -->
-<script src="/web250-local/scripts/fizzbuzz.js"></script>
+<script src="./scripts/fizzbuzz.js"></script>
