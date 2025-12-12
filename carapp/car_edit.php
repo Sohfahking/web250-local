@@ -20,6 +20,8 @@
 <body>
     <header><?php include("components/header250.php"); ?></header>
 
+    <a href="car_add.php?">Add Car</a>
+
     <?php
     include __DIR__ . '/car_db.php';
 
