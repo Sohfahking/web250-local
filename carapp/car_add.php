@@ -10,11 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $make  = trim($_POST['Make'] ?? '');
     $model = trim($_POST['Model'] ?? '');
     $year  = trim($_POST['Year'] ?? '');
-    $trim  = trim($_POST['Trim'] ?? '');
     $ext   = trim($_POST['Ext_Color'] ?? '');
-    $int   = trim($_POST['Int_Color'] ?? '');
-    $mileage = trim($_POST['Mileage'] ?? '');
-    $transmission = trim($_POST['Transmission'] ?? '');
     $price = trim($_POST['Asking_Price'] ?? '');
 
     if (!$vin || !$make || !$model || !$price) {
@@ -23,19 +19,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!$errors) {
         $stmt = $pdo->prepare("
-            INSERT INTO inventory (vin, make, model, year, trim, ext_color, int_color, mileage, transmission, asking_price)
-            VALUES (:vin, :make, :model, :year, :trim, :ext, :int, :mileage, :transmission, :price)
+            INSERT INTO inventory (vin, make, model, year, ext_color, asking_price)
+            VALUES (:vin, :make, :model, :year, :ext, :price)
         ");
         $successInsert = $stmt->execute([
             'vin' => $vin,
             'make' => $make,
             'model' => $model,
             'year' => $year,
-            'trim' => $trim,
             'ext' => $ext,
-            'int' => $int,
-            'mileage' => $mileage,
-            'transmission' => $transmission,
             'price' => $price
         ]);
 
@@ -61,11 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <label>Make: <input type="text" name="Make" required></label><br>
     <label>Model: <input type="text" name="Model" required></label><br>
     <label>Year: <input type="text" name="Year"></label><br>
-    <label>Trim: <input type="text" name="Trim"></label><br>
     <label>Exterior Color: <input type="text" name="Ext_Color"></label><br>
-    <label>Interior Color: <input type="text" name="Int_Color"></label><br>
-    <label>Mileage: <input type="text" name="Mileage"></label><br>
-    <label>Transmission: <input type="text" name="Transmission"></label><br>
     <label>Asking Price: <input type="text" name="Asking_Price" required></label><br>
     <button type="submit">Add Car</button>
 </form>
