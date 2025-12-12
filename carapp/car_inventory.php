@@ -56,7 +56,7 @@
 </head>
 
 <body>
-  <header><?php include("header250.php"); ?></header>
+  <header><?php include("components/header250.php"); ?></header>
 
   <h3>Current Inventory</h3>
 
@@ -108,7 +108,7 @@
     ?>
   </div>
 
-  <footer><?php include("footer250.php"); ?></footer>
+  <footer><?php include("components/footer250.php"); ?></footer>
 </body>
 
 </html>
