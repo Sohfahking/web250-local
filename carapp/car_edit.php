@@ -26,11 +26,24 @@ $success = $stmt->execute([
 
 ?>
 <!DOCTYPE html>
-<html>
-<head><title>Car Updated</title></head>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Index/Home">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="Dajabre Torain">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--  Link to CSS file(s) -->
+  <link rel="stylesheet" href="styles/styles.css">
+
+  <title> Dajabre Torain's Daring Tiger | WEB250 | Edit Car</title>
+
+  <!-- Accumulus Validator -->
+  <script src="https://lint.page/kit/880bd5.js" crossorigin="anonymous"></script>
 <body>
 <header><?php include("components/header250.php"); ?></header>
-<h2>Daring Tiger's Cars</h2>
 
 <?php if ($success): ?>
     <p><strong><?= htmlspecialchars("$make $model") ?></strong> was updated successfully.</p>
@@ -38,5 +51,6 @@ $success = $stmt->execute([
     <p>There was an error saving the vehicle.</p>
 <?php endif; ?>
 
-<p><a href="viewCars.php">Return to Inventory</a></p>
+<p><a href="https://web250-local.onrender.com/carapp/car_inventory.php">Back to Inventory</a></p>
+
 <footer><?php include("components/footer250.php"); ?></footer>
