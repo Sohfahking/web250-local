@@ -56,6 +56,9 @@ $price = $car['ASKING_PRICE'];
 $stmt = $pdo->prepare("SELECT * FROM images WHERE VIN = :vin");
 $stmt->execute(['vin' => $vin]);
 $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
+var_dump($car);
+exit;
+
 
 foreach ($images as $img) {
     $file = htmlspecialchars($img['FILENAME']);
