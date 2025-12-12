@@ -11,7 +11,7 @@ if (!$vin) {
 
 try {
     // Prepare and execute query
-    $stmt = $pdo->prepare("SELECT * FROM inventory WHERE vin = :vin");
+    $stmt = $pdo->prepare("SELECT * FROM cars WHERE vin = :vin");
     $stmt->execute([':vin' => $vin]);
     $car = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -36,3 +36,5 @@ try {
 }
 
 ?>
+
+<p><a href="https://web250-local.onrender.com/carapp/car_inventory.php">Back to Inventory</a></p>

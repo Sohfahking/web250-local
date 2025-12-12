@@ -58,4 +58,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <button type="submit">Add Car</button>
 </form>
 
-<p><a href="index.php?page=car_inventory">Back to Inventory</a></p>
+<p><a href="https://web250-local.onrender.com/carapp/car_inventory.php">Back to Inventory</a></p>

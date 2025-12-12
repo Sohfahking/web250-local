@@ -102,7 +102,7 @@
 
       echo "<td>
             <a href='car_edit.php?VIN=$vin'>Edit</a> |
-            <a href='car_AddPic.php?VIN=$vin'>Add Image</a>
+            <a href='car_addPic.php?VIN=$vin'>Add Image</a>
             <a href='car_delete.php?VIN=$vin' onclick=\"return confirm('Delete this car?');\">Delete</a>
           </td>";
       echo "</tr>";
@@ -115,7 +115,6 @@
     ?>
   </div>
 
-  <footer><?php include("components/footer250.php"); ?></footer>
 </body>
 
 </html>
