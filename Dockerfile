@@ -1,17 +1,13 @@
-# Use the official PHP image with Apache as the base image
 FROM php:8.2-apache
 
-# Set the working directory inside the container
-WORKDIR /var/www/html
+# Install mysqli and other common PHP extensions
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-# Copy your application source code from your local machine to the container
-COPY . .
+# Copy your app into the container
+COPY . /var/www/html/
 
-# Optionally, enable Apache modules like rewrite (common for frameworks like Laravel)
-# RUN a2enmod rewrite
+# Set working directory
+WORKDIR /var/www/html/
 
-# You might need to install PHP extensions here if your app uses them (e.g., pdo_pgsql for PostgreSQL)
-# RUN docker-php-ext-install pdo pdo_pgsql
-
-# The base image already handles starting the Apache server, so no CMD is strictly needed here.
-# Render automatically uses port 80/443 by default for web services, but the image is often internally configured to listen on port 80
+# Expose default Apache port
+EXPOSE 80
