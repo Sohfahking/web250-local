@@ -7,7 +7,7 @@ WORKDIR /var/www/html
 # Install required packages for PostgreSQL PDO and other common PHP extensions
 RUN apt-get update && \
     apt-get install -y libpq-dev zip unzip git && \
-    docker-php-ext-install pdo pdo_pgsql
+    docker-php-ext-install pdo pdo_mysql
 
 # Enable Apache mod_rewrite (optional, but useful for friendly URLs)
 RUN a2enmod rewrite
