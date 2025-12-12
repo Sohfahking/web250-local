@@ -41,11 +41,11 @@
       color: lightslategray;
     }
 
-    #Grid tr.odd td {
+    #Grid .odd td {
       background-color: #F2F5A9;
     }
 
-    #Grid tr.even td {
+    #Grid .even td {
       background-color: white;
     }
 
