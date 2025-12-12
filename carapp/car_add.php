@@ -1,6 +1,6 @@
 <?php
-// car_add.php
-include __DIR__ . '/car_db.php';
+
+include 'config_db.php';
 
 $errors = [];
 $success = '';
@@ -81,9 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit">Add Car</button>
         </form>
     </main>
-
-
-    <h2><a href="car_inventory.php">Back to Inventory</a></h2>
+ <footer><?php include("components/footer250.php"); ?></footer>
 
 </body>
 

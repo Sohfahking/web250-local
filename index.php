@@ -20,7 +20,7 @@
     "intro250"    => "Dajabre Torain's Daring Tiger | WEB250 | Introduction",
     "contract250" => "Dajabre Torain's Daring Tiger | WEB250 | Course Contract",
     "brand250"    => "Dajabre Torain's Daring Tiger | WEB250 | Brand",
-    "template250" => "Dajabre Torain's Daring Tiger | WEB250 | Template",
+    "template250" => "Dajabre Torain's Daring Tiger | WEB250 | Template"
   ];
 
   //dynamic title (fallback if not found)
@@ -79,26 +79,19 @@
     </nav>
   </header>
 
-<main>
-<?php
-// Determine path based on page
-if (str_starts_with($page, 'car_')) {
-    $file = __DIR__ . "/carapp/" . substr($page, 4) . ".php"; // remove 'car_' prefix
-} else {
-    $file = __DIR__ . "/contents/" . $page . ".php";
-}
+  <main>
+    <?php
+    // Build path to content
+    $file = "contents/" . $page . ".php";
 
-
-// Load file if exists, else show 404
-if (file_exists($file)) {
-    include($file);
-} else {
-    include("contents/404.php");
-}
-?>
-
-</main>
-
+    // Load if exists, otherwise load a fallback error page
+    if (file_exists($file)) {
+      include($file);
+    } else {
+      include("contents/404.php");
+    }
+    ?>
+  </main>
 
   <footer>
     <nav>

@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/car_db.php';
+include 'config_db.php';
 
 // GET VIN for display or editing
 $vin = $_GET['VIN'] ?? $_POST['vin'] ?? '';
@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <button type="submit">Save Changes</button>
         </form>
     </main>
-    <h2><a href="car_inventory.php">Back to Inventory</a></h2>
+    <footer><?php include("components/footer250.php"); ?></footer>
 
 </body>
 

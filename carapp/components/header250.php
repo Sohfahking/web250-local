@@ -1,4 +1,4 @@
-<h1>Dajabre Torain's Daring Tiger | WEB250</h1>
+<h1>Daring Tiger's Used Cars</h1>
     <nav>
       <ul>
         <li><a href="https://web250-local.onrender.com/index.php?page=index" title="Index">Home</a></li>

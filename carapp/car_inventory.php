@@ -67,7 +67,7 @@
   <div class="auto-style1">
 
     <?php
-    include __DIR__ . '/car_db.php';
+    include 'config_db.php';
 
     // Query all cars
     $stmt = $pdo->query("SELECT * FROM cars ORDER BY make, model");
@@ -102,7 +102,6 @@
 
       echo "<td>
             <a href='car_edit.php?VIN=$vin'>Edit</a> |
-            <a href='car_addPic.php?VIN=$vin'>Add Image</a>
             <a href='car_delete.php?VIN=$vin' onclick=\"return confirm('Delete this car?');\">Delete</a>
           </td>";
       echo "</tr>";

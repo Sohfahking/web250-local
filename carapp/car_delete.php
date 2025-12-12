@@ -24,8 +24,8 @@
     <main>
 
         <?php
-        // car_delete.php
-        include __DIR__ . '/car_db.php';
+        
+        include 'config_db.php';
 
         $vin = $_GET['VIN'] ?? '';
         if (!$vin) die("VIN missing.");
@@ -43,12 +43,9 @@
             <p>There was an error deleting the car.</p>
         <?php endif; ?>
 
-        <p><a href="https://web250-local.onrender.com/carapp/car_inventory.php">Back to Inventory</a></p>
-
-
     </main>
 
-    <footer><?php include("components/footer250.php"); ?></footer>
+  <footer><?php include("components/footer250.php"); ?></footer>
 </body>
 
 </html>
