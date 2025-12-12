@@ -1,56 +1,44 @@
-<html>
-<head>
-<title>Car Saved</title>
-</head>
-<body bgcolor="#FFFFFF" text="#000000" >
-
 <?php
-// Capture the values posted to this php program from the text fields in the form
-
-$VIN = $_REQUEST['VIN'] ;
-$Make = $_REQUEST['Make'] ;
-$Model = $_REQUEST['Model'] ;
-$Price = $_REQUEST['Asking_Price'] ;
-
-//Build a SQL Query using the values from above
-
-$query = "UPDATE inventory SET 
-
-VIN='$VIN', 
-Make='$Make', 
-Model='$Model', 
-ASKING_PRICE='$Price'
-
-WHERE
-
-VIN='$VIN'"; 
-
-// Print the query to the browser so you can see it
-echo ($query. "<br>");
-
 include 'db.php';
-/* check connection */
-if (mysqli_connect_errno()) {
- echo ("Connection failed: ". $mysqli->error."<br>");
- exit();
+
+// Capture form values
+$vin   = $_POST['VIN'] ?? '';
+$make  = $_POST['Make'] ?? '';
+$model = $_POST['Model'] ?? '';
+$price = $_POST['Asking_Price'] ?? '';
+
+if (!$vin) {
+    die("VIN missing.");
 }
 
- echo 'Connected successfully to mySQL. <BR>';
+$stmt = $pdo->prepare("
+    UPDATE inventory 
+    SET make = :make, model = :model, asking_price = :price
+    WHERE vin = :vin
+");
 
-//select a database to work with
-$mysqli->select_db("Cars");
- Echo ("Selected the Cars database. <br>");
+$success = $stmt->execute([
+    'make'  => $make,
+    'model' => $model,
+    'price' => $price,
+    'vin'   => $vin,
+]);
 
-/* Try to insert the new car into the database */
-if ($result = $mysqli->query($query)) {
- echo "<p>You have successfully entered $Make $Model into the database.</P>";
-}
-else
-{
- echo "Error entering $VIN into database: " . mysql_error()."<br>";
-}
-$mysqli->close();
 ?>
-<p><a href="ViewCarsWithStyle2.php">View Cars with Edit Links</a></p>
+<!DOCTYPE html>
+<html>
+<head><title>Car Updated</title></head>
+<body>
+
+<h1>Sam's Used Cars</h1>
+
+<?php if ($success): ?>
+    <p><strong><?= htmlspecialchars("$make $model") ?></strong> was updated successfully.</p>
+<?php else: ?>
+    <p>There was an error saving the vehicle.</p>
+<?php endif; ?>
+
+<p><a href="ViewCarsWithStyle2.php">Return to Inventory</a></p>
+
 </body>
 </html>

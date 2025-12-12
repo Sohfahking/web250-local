@@ -67,11 +67,12 @@ try {
     $vin = htmlspecialchars($car['vin'] ?? $car['VIN'] ?? '');
     $make = htmlspecialchars($car['make'] ?? $car['Make'] ?? '');
     $model = htmlspecialchars($car['model'] ?? $car['Model'] ?? '');
+    $price = number_format($row['asking_price'] ?? 0, 2);
 
     echo "<tr class=\"$class\">";
     echo "<td><a href='viewcar.php?VIN=$vin'>$make</a></td>";
     echo "<td>$model</td>";
-    echo "<td><a href='AddImage.php?VIN=$vin'>Add Image</a></td>";
+    echo "<td>$price</td>";
     echo "</tr>";
 
     $class = ($class == "odd") ? "even" : "odd";

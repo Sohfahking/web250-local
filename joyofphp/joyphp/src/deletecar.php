@@ -1,29 +1,32 @@
-<html>
-<head>
-<title>Sam's Used Cars</title>
-</head>
+<?php
+include 'db.php';
 
+$vin = $_GET['VIN'] ?? '';
+
+if (!$vin) {
+    die("No VIN provided.");
+}
+
+$stmt = $pdo->prepare("DELETE FROM inventory WHERE vin = :vin");
+$stmt->execute(['vin' => $vin]);
+
+$deleted = $stmt->rowCount() > 0;
+?>
+
+<!DOCTYPE html>
+<html>
+<head><title>Delete Car</title></head>
 <body>
 
 <h1>Sam's Used Cars</h1>
-<?php 
-include 'db.php';
-$vin = $_GET['VIN'];
-$query = "DELETE FROM INVENTORY WHERE VIN='$vin'";
-echo "$query <BR>";
-/* Try to query the database */
-if ($result = $mysqli->query($query)) {
-   Echo "The vehicle with VIN $vin has been deleted.";
-}
-else
-{
-    echo "Sorry, a vehicle with VIN of $vin cannot be found " . mysql_error()."<br>";
-}
 
-$mysqli->close();
-   
-?>
-<p><a href="ViewCarsWithStyle2.php">View Cars with Edit Links</a></p>
+<?php if ($deleted): ?>
+    <p>The vehicle with VIN <strong><?= htmlspecialchars($vin) ?></strong> has been deleted.</p>
+<?php else: ?>
+    <p>No vehicle found with VIN <strong><?= htmlspecialchars($vin) ?></strong>.</p>
+<?php endif; ?>
+
+<p><a href="ViewCarsWithStyle2.php">Return to Inventory</a></p>
+
 </body>
-
 </html>
