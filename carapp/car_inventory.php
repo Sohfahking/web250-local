@@ -28,7 +28,7 @@
     #Grid td,
     #Grid th {
       font-size: 1em;
-      border: 1px solid #61ADD7;
+      border: 1px solid gray;
       padding: 3px 7px 2px 7px;
     }
 
@@ -38,7 +38,7 @@
       padding-top: 5px;
       padding-bottom: 4px;
       background-color: #C2D9FE;
-      color: lightslategray;
+      color: black;
     }
 
     #Grid .odd td {
