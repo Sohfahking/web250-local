@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include 'config.php';
 
 // Capture form values
 $vin   = $_POST['VIN'] ?? '';

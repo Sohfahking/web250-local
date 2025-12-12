@@ -1,5 +1,5 @@
 <?php
-include 'db.php'; // Supplies $pdo (PDO connection)
+include 'config.php'; // Supplies $pdo (PDO connection)
 
 // Query all cars
 $stmt = $pdo->query("SELECT * FROM inventory ORDER BY make, model");
