@@ -20,7 +20,12 @@
     "intro250"    => "Dajabre Torain's Daring Tiger | WEB250 | Introduction",
     "contract250" => "Dajabre Torain's Daring Tiger | WEB250 | Course Contract",
     "brand250"    => "Dajabre Torain's Daring Tiger | WEB250 | Brand",
-    "template250" => "Dajabre Torain's Daring Tiger | WEB250 | Template"
+    "template250" => "Dajabre Torain's Daring Tiger | WEB250 | Template",
+
+    // Car app pages
+    "car_inventory"  => "Dajabre Torain's Daring Tiger | Car App | Inventory",
+    "car_upload" => "Dajabre Torain's Daring Tiger | Car App | Upload Image",
+    "car_edit"   => "Dajabre Torain's Daring Tiger | Car App | Edit Car"
   ];
 
   //dynamic title (fallback if not found)
@@ -55,7 +60,7 @@
       <ul class="main-menu">
         <li><a href="" title="My Car App">My Cars</a>
          <ul class="sub-menu">
-            <li><a href="./carapp/viewCars.php" title="Sam's Used Cars">Inventory</a></li>
+            <li><a href="./carapp/car_inventory.php" title="Sam's Used Cars">Inventory</a></li>
           </ul>
         </li>
       </ul>
@@ -97,6 +102,7 @@ if (file_exists($file)) {
     include("contents/404.php");
 }
 ?>
+
 </main>
 
 
