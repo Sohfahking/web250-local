@@ -36,11 +36,14 @@ label {
 
 input[type="text"],
 textarea {
+    font-family: "Open Sans", sans-serif;
+    text-align: left;
     padding: 8px;
     border: 1px solid var(--verdigris);
     border-radius: 5px;
     font-size: 1rem;
     width: 100%;
+    box-sizing: border-box;
 }
 
 button[type="submit"] {
