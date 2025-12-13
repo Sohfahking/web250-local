@@ -73,7 +73,9 @@ button[type="submit"] {
 </label>
 
 <label>About You:
-<textarea name="about" rows="4">My name is Dajabre and this is my last semester at CPCC...</textarea>
+<textarea name="about" rows="4">My name is Dajabre and this is my last semester at CPCC. I am working full time as a 
+      customer care agent for an Internet Service Provider (ISP). I enjoy watching anime, 
+      crocheting, manual QA testing for code, and sometimes, playing video games.</textarea>
 </label>
 </fieldset>
 
@@ -81,23 +83,27 @@ button[type="submit"] {
 <legend>Backgrounds</legend>
 
 <label>Personal Background:
-<textarea name="personal">She/her, 25, Born in Brooklyn, NY...</textarea>
+<textarea name="personal">She/her, 25, Born in Brooklyn, NY. Raised in Charlotte, NC.
+          I have 2 dogs and 1 cat (Tokoyami and Nami, Clove). I love gaming, anime, and crocheting.</textarea>
 </label>
 
 <label>Professional Background:
-<textarea name="professional">I had quite a few food service jobs...</textarea>
+<textarea name="professional">I had quite a few food service jobs before starting on the path of being an IT professional. 
+            Aiming for a software QA role or Pharmacy Technician.</textarea>
 </label>
 
 <label>Academic Background:
-<textarea name="academic">Lifelong student...</textarea>
+<textarea name="academic">Lifelong Student; Studied psychology before choosing IT/ Computer Science. 
+          Hoping to graduate AAS in IT by Fall 2025</textarea>
 </label>
 
 <label>Background in this Subject:
-<textarea name="background_subject">I've been using computers since I was 7...</textarea>
+<textarea name="background_subject">I've been using computers since I was 7. From learning to burn Fantasia &
+          Destiny’s Child CD’s to designing my own Tumblr page using HTML & CSS</textarea>
 </label>
 
 <label>Primary Computer Platform:
-<input type="text" name="platform" value="ASUS gaming PC, Windows 11">
+<input type="text" name="platform" value="ASUS gaming PC, Desktop, Windows 11, home office/ladies’ den">
 </label>
 </fieldset>
 
