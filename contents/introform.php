@@ -1,5 +1,14 @@
 <style>
-    /* ------------------ Form Styling ------------------ */
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+    :root {
+        /* Brand Colors */
+        --paynes-gray: #5d737e;
+        --verdigris: #64b6ac;
+        --mint-green: #daffef;
+        --baby-powder: #fcfffd;
+    }
+
     form {
         display: flex;
         flex-direction: column;
@@ -7,16 +16,16 @@
     }
 
     fieldset {
-        border: 2px solid var(--reseda-green);
+        border: 2px solid var(--verdigris);
         border-radius: 8px;
         padding: 15px;
-        background-color: var(--flax);
+        background-color: var(--mint-green);
     }
 
     legend {
         font-weight: bold;
         padding: 0 10px;
-        color: var(--smoky-black);
+        color: var(--paynes-gray);
     }
 
     label {
@@ -29,7 +38,7 @@
     input[type="text"],
     textarea {
         padding: 8px;
-        border: 1px solid var(--reseda-green);
+        border: 1px solid var(--verdigris);
         border-radius: 5px;
         font-size: 1rem;
         width: 100%;
@@ -41,8 +50,8 @@
     }
 
     button[type="submit"] {
-        background-color: var(--reseda-green);
-        color: var(--smoky-black);
+        background-color: var(--mint-green);
+        color: var(--paynes-gray);
         font-weight: bold;
         padding: 12px 20px;
         border: none;
@@ -53,14 +62,14 @@
     }
 
     button[type="submit"]:hover {
-        background-color: var(--icterine);
+        background-color: var(--baby-powder);
         transform: scale(1.05);
     }
 
     /* Smaller note for extra courses */
     form p {
         font-size: 0.85rem;
-        color: var(--smoky-black);
+        color: var(--paynes-gray);
         margin-top: 5px;
     }
 
