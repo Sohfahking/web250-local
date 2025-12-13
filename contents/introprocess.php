@@ -72,4 +72,29 @@ $funFact = $_POST['funFact'] ?? '';
 <?php endif; ?>
 
 <?php if (!empty($platform)): ?>
-<li><strong>Primary Computer Platform</strong>: <?php echo htmlspecialchars($platf
+<li><strong>Primary Computer Platform</strong>: <?php echo htmlspecialchars($platform); ?></li>
+<?php endif; ?>
+
+<?php
+$filteredCourses = array_filter($courses, fn($c) => trim($c) !== '');
+if (!empty($filteredCourses)):
+?>
+<li><strong>Courses I'm In & Why</strong>:
+<ul>
+<?php foreach ($filteredCourses as $course): ?>
+<li><?php echo htmlspecialchars($course); ?></li>
+<?php endforeach; ?>
+</ul>
+</li>
+<?php endif; ?>
+
+<?php if (!empty($funFact)): ?>
+<li><strong>Funny/Interesting Item About Yourself</strong>: <?php echo htmlspecialchars($funFact); ?></li>
+<?php endif; ?>
+</ul>
+
+</main>
+
+<footer><?php include("components/footer250.php"); ?></footer>
+</body>
+</html>
