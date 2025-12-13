@@ -21,25 +21,24 @@ $funFact = $_POST['funFact'] ?? '';
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="description" content="Index/Home">
-    <meta name="keywords" content="HTML, CSS, JavaScript">
-    <meta name="author" content="Dajabre Torain">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Index/Home">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="Dajabre Torain">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--  Link to CSS file(s) -->
-    <link rel="stylesheet" href="styles/default.css">
+  <!--  Link to CSS file(s) -->
+  <link rel="stylesheet" href="styles/styles.css">
 
-    <title> Dajabre Torain's Daring Tiger | WEB215 |Introduction</title>
+  <title> Dajabre Torain's Daring Tiger | WEB250 | Home</title>
 
-    <!-- Dynamic header/footer JS -->
-    <script src="scripts/components215.js" defer></script>
-
-    <script src="https://lint.page/kit/6664c1.js" crossorigin="anonymous"></script>
+  <!-- Accumulus Validator -->
+  <script src="https://lint.page/kit/880bd5.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <header></header>
+  <header><?php include("components/header250.php"); ?></header>
+
     <main>
         <h2>Introduction</h2>
 
@@ -106,7 +105,7 @@ $funFact = $_POST['funFact'] ?? '';
             <?php endif; ?>
         </ul>
     </main>
-    <footer></footer>
+    
+ <footer><?php include("components/footer250.php"); ?></footer>
 </body>
-
 </html>
