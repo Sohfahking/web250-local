@@ -29,12 +29,12 @@ $funFact = $_POST['funFact'] ?? '';
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="styles/styles.css">
+<link rel="stylesheet" href="../styles/styles.css">
 <title>Dajabre Torain's Daring Tiger | WEB250 | Introduction</title>
 </head>
 
 <body>
-<header><?php include("components/header250.php"); ?></header>
+<header><?php include("../components/header250.php"); ?></header>
 
 <main>
 <h2>Introduction</h2>
@@ -95,6 +95,6 @@ if (!empty($filteredCourses)):
 
 </main>
 
-<footer><?php include("components/footer250.php"); ?></footer>
+<footer><?php include("../components/footer250.php"); ?></footer>
 </body>
 </html>
